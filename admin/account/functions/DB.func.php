@@ -90,7 +90,7 @@ function create_accountaction($connect,$name,$email,$password,$ucategory,$aumemb
 	$options = [
 		'cost' => 12,];
 	$hash_pass = password_hash("$password", PASSWORD_BCRYPT, $options);
-	$sql = "INSERT INTO tblaccount VALUES ('','$name','$email','$hash_pass','Inactive','$ucategory','$aumember','No','','')";
+	$sql = "INSERT INTO tblaccount VALUES ('','$name','$email','$hash_pass','Inactive','$ucategory','$aumember','No','0','0')";
 	$result = $connect->query($sql);
 	if ($result === true) {
 		return 1;

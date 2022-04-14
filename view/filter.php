@@ -1,6 +1,6 @@
 <?php
 // Set header response to json format
-header("Content-Type:application/json");
+// header("Content-Type:application/json");
 // filter by views
 include("../admin/research/functions/DB.func.php");
 include("../admin/research/inc/db.php");

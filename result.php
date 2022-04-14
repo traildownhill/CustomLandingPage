@@ -341,7 +341,7 @@
                         <tr>
                           <div class="col-md-6 col-lg-10 offset-lg-1 wow bounceInUp" data-wow-duration="0.3s">
                           <div class="box">
-                                 <h4 class="title"><a href="./view/action.php?u=j&id=<?php echo $data['id'];?>" class="cls" id="<?php echo $data['id'];?>"><span><?php echo $data['title'];?></span></a></h4>
+                                 <h4 class="title"><a href="./view/action.php?u=j&id=<?php echo $data['id'];?>" class="cls1" id="<?php echo $data['id'];?>"><span><?php echo $data['title'];?></span></a></h4>
                                  <ul class="list-inline" style="padding-left: 40px; font-size: small;">
                                     <li class="list-inline-item" value="<?php echo $data['author'];?>"><b><u><span><?php echo $data['author'];?></span></u></b></li>
                                     
@@ -385,7 +385,7 @@
                           <div class="col-md-6 col-lg-10 offset-lg-1 wow bounceInUp" data-wow-duration="0.3s">
 
                           <div class="box">
-                            <h4 class="title"><a href="./view/action.php?u=a&id=<?php echo $data['id'];?>" class="cls" id="<?php echo $data['id'];?>"><span><?php echo $data['a_title'];?></span></a></h4>
+                            <h4 class="title"><a href="./view/action.php?u=a&id=<?php echo $data['id'];?>" class="cls2" id="<?php echo $data['id'];?>"><span><?php echo $data['a_title'];?></span></a></h4>
                               <ul class="list-inline" style="padding-left: 40px; font-size: small;">
                                 <li class="list-inline-item" value="<?php echo $data['a_author'];?>"><b><u><span><?php echo $data['a_author'];?></span></u></b></li>
                                     
@@ -424,7 +424,7 @@
                         <tr>
                           <div class="col-md-6 col-lg-10 offset-lg-1 wow bounceInUp" data-wow-duration="0.3s">
                             <div class="box">
-                              <h4 class="title"><a href="./view/action.php?u=n&id=<?php echo $data['id'];?>" class="cls" id="<?php echo $data['id'];?>"><span><?php echo $data['name'];?></span></a></h4>
+                              <h4 class="title"><a href="./view/action.php?u=n&id=<?php echo $data['id'];?>" class="cls3" id="<?php echo $data['id'];?>"><span><?php echo $data['name'];?></span></a></h4>
                               <ul class="list-inline" style="padding-left: 40px; font-size: small;">
                                 <li class="list-inline-item" value="<?php echo $data['author'];?>"><b><u><span><?php echo $data['author'];?></span></u></b></li>
                                    
@@ -434,7 +434,7 @@
                               <p class="description" value="<?php echo $data['mobile'];?>"><span><?php echo $data['mobile'];?></span></p>
                               <ul class="list-inline" style="padding-left: 40px; font-size: small;">
                                 <li class="list-inline-item" id="nView<?php echo $data['id'];?>" value="<?php echo $data['views'];?>"><b>Views: <?php echo $data['views'];?></b></li>
-                                <li class="list-inline-item" id="nCite<?php echo $data['id'];?>" value="<?php echo $data['cites'];?>"><b>Cite: <?php echo $data['cites'];?></b></li>
+                                
                               </ul>
                             </div>
                           </div>

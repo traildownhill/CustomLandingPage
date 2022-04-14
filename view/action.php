@@ -651,13 +651,13 @@ if (!empty($_GET['id']))
 		// include "";
 		// $pdf_file = $data['pdf_file'];
 		// $fstudy = $data['field_of_study'];
-		// $tags = $data['tagging'];
+		$tags = $data['tags'];
 		?>
 			<br><br><br><br>
 			<!--View Research-->
 			<div class="container">
 				<div id="result">
-				<a href="../research.php"><button class="btn btn-dark btn-sm"  style="float:left">Back</button></a>
+				<!-- <a href="../research.php"><button class="btn btn-dark btn-sm"  style="float:left">Back</button></a> -->
 			</div>	
 			</div><br><br>
 			<div class="container">
@@ -697,7 +697,7 @@ if (!empty($_GET['id']))
 										?>
 										<div>
 											
-											<a href="../admin/news/<?php //echo $data['pdf_file']?>"><button type ="button" class="btn btn-outline-primary btn-sm float-right" style="position:relative;bottom:40px;" name="btn-fullview"><i class="fa fa-file-text"> View FullNews&nbsp;</i></button></a>
+											<!-- <a href="../admin/news/<?php //echo $data['pdf_file']?>"><button type ="button" class="btn btn-outline-primary btn-sm float-right" style="position:relative;bottom:40px;" name="btn-fullview"><i class="fa fa-file-text"> View FullNews&nbsp;</i></button></a> -->
 										</div>
 										<?php
 									}
@@ -716,26 +716,9 @@ if (!empty($_GET['id']))
 								</ul>
 							</div>
 							<p class="font-weight-normal text-left" style="width:80%;"><?php echo ($data['mobile']); ?></p><br>
-							<button type="button" class="btn btn-sm badge badge-info text-wrap" style="width: 5rem; padding:6px; float:left" data-bs-toggle="modal" data-bs-target="#modalciting"><span>Cite</span></button>
-
-							<!-- Citation Modal -->
-							<div class="modal fade" id="modalciting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-								<div class="modal-dialog">
-									<div class="modal-content">
-										<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-										</div>
-										<div class="modal-body">
-										...
-										</div>
-										<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save changes</button>
-										</div>
-									</div>
-								</div>
-							</div>
+							<ul class="list-inline" style="font-size: small;">
+                     	<li class="list-inline-item" id="View<?php echo $data['id'];?>" value="<?php echo $data['views'];?>"><b>Views: <?php echo $data['views'];?></b></li>
+                     	<!-- <li class="list-inline-item" id="Cite<?php echo $data['id'];?>" value="<?php echo $data['cites'];?>"><b>Cite: <?php echo $data['cites'];?></b></li></ul> -->
 		<!-- ============================================================== -->
 				</div>
 				</div>
@@ -749,7 +732,7 @@ if (!empty($_GET['id']))
 				<!-- <div class="row"> -->
 				<div class="card-group">
 				<?php
-				$result1 = get_newsrelated($connect,$fstudy,$tags);
+				$result1 = get_newsrelated($connect,$tags);
 				if ($result1->num_rows>0) {
 					while ($data1 = mysqli_fetch_array($result1))
 					{
@@ -809,7 +792,7 @@ if (!empty($_GET['id']))
   
   <script src="../resource/js/main.js"></script>
   <!-- <script src="../script/main.js"></script> -->
-  <script src="main.js"></script>
+  <script src="./main.js"></script>
   <script>
     $(document).ready(function () {
     <?php

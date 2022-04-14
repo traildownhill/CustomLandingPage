@@ -9,7 +9,7 @@ $(document).ready(function (e) {
    // Research
    
    $('a.cls').click(function () {
-      // alert("Click")
+      // alert("Click");
       var id_r = $(this).attr('id');
       var view = $("#rView" + id_r).val();
       if(isNaN(view)) {
@@ -30,7 +30,8 @@ $(document).ready(function (e) {
    });
    
    // Journal
-   $('a.cls').click(function () {
+   $('a.cls1').click(function () {
+      alert("Click1");
       var id_j = $(this).attr('id');
       var view = $("#jView" + id).val();
       if(isNaN(view)) {
@@ -45,13 +46,14 @@ $(document).ready(function (e) {
          data:{view_j:view_j,id_j:id_j},
          success:function(data)
          {
-            // alert("I viewed it "+data);
+            alert("I viewed 1 it "+data);
          }
         });
    });
 
    // Article
-   $('a.cls').click(function () {
+   $('a.cls2').click(function () {
+      alert("Click2");
       var id_a = $(this).attr('id');
       var view = $("#aView" + id).val();
       if(isNaN(view)) {
@@ -66,13 +68,14 @@ $(document).ready(function (e) {
          data:{view_a:view_a,id_a:id_a},
          success:function(data)
          {
-            // alert("I viewed it "+data);
+            alert("I viewed 2 it "+data);
          }
         });
    });
    
    // News
-   $('a.cls').click(function () {
+   $('a.cls3').click(function () {
+      alert("Click3");
       var id_n = $(this).attr('id');
       var view = $("#nView" + id).val();
       if(isNaN(view)) {
@@ -87,7 +90,7 @@ $(document).ready(function (e) {
          data:{view_n:view_n,id_n:id_n},
          success:function(data)
          {
-            // alert("I viewed it "+data);
+            alert("I viewed 3 it "+data);
          }
         });
    });

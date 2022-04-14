@@ -220,8 +220,8 @@ function get_newsaction($connect,$id){
 	}
 }
 
-function get_newsrelated($connect, $fstudy, $tags){
-	$sql = "SELECT * FROM tblnews WHERE field_of_study ='$fstudy' OR tagging = '$tags'";
+function get_newsrelated($connect,$tags){
+	$sql = "SELECT * FROM tblnews WHERE tags = '$tags'";
 	$result1 = $connect->query($sql);
 		return $result1;
 }
