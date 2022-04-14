@@ -270,9 +270,9 @@ if (!empty($_GET['id']))
 									<div class="modal-body">
 									MLA
 									<div class="input-group" id="r-cite-area">
-									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['main_author']); echo $result[1];?>, <?php  echo  $result[0];?>. et.al. "<?php echo $data['title'];?>." <?php echo $data['field_of_study'];?> <?php $date = $data['date_publish'];echo "" .date("(Y)",strtotime($date));?> </textarea>
+									<textarea rows="7" 		cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['main_author']); echo $result[1];?>, <?php  echo  $result[0];?>. et.al. "<?php echo $data['title'];?>." <?php echo $data['field_of_study'];?> <?php $date = $data['date_publish'];echo "" .date("(Y)",strtotime($date));?> </textarea>
 									</div>
-									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite" onclick="myFunction()"><span>Copy Citation</span></button>
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite-r1" ><span>Copy Citation</span></button>
 									<br>
 									<br>	
 									APA 
@@ -280,7 +280,7 @@ if (!empty($_GET['id']))
 									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput1" readonly><?php $result = explode(" ",$data['main_author']); echo $result[1];?>, <?php  echo  $result[0][0];?>. <?php echo $data['co_authors'];?>. <?php $date = $data['date_publish'];echo "" .date("(Y)",strtotime($date));?> <?php echo $data['title'];?>. <?php echo $data['field_of_study'];?>.</textarea>
 									</div>
 
-									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite" onclick="myFunction()" ><span>Copy Citation</span></button>
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite-r2"><span>Copy Citation</span></button>
 
 									</div>
 
@@ -398,6 +398,13 @@ if (!empty($_GET['id']))
 								
 								<!--  -->
 								<div>
+								<h5 class="cls" id="<?php echo $_GET['id'];?>"></h5>
+									<h5 id="cited_byJ" value="<?php 
+									if(!empty($_SESSION['id']))
+									{
+										echo $_SESSION['id'];
+									}
+									?>"></h5>
 								<h2 class="text-left" style="margin-top:10px; font-family:'Lucida Sans';" ><b><?php echo $data['title']?></b></h2>
 								<ul class="list-inline" style="font-size: small;">
 								<?php
@@ -442,17 +449,17 @@ if (!empty($_GET['id']))
 									<div class="modal-body">
 									MLA
 									<div class="input-group" id="r-cite-area">
-									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['author']); echo $result[1];?>, <?php  echo  $result[0];?>. "<?php echo $data['title'];?>." <?php echo $data['fstudy'];?> <?php $date = $data['datepub']; echo "" .date("(Y)",strtotime($date));?> </textarea>
+									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput3" readonly><?php $result = explode(" ",$data['author']); echo $result[1];?>, <?php  echo  $result[0];?>. "<?php echo $data['title'];?>." <?php echo $data['fstudy'];?> <?php $date = $data['datepub']; echo "" .date("(Y)",strtotime($date));?> </textarea>
 									</div>
-									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite"><span>Copy Citation</span></button>
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite-j1"><span>Copy Citation</span></button>
 									<br>
 									<br>
 									APA 
 									<div class="input-group" id="r-cite-area">
-									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['author']); echo $result[1];?>, <?php  echo  $result[0][0];?>. <?php $date = $data['datepub'];echo "" .date("(Y)",strtotime($date));?> <?php echo $data['title'];?>. <?php echo $data['fstudy'];?>.</textarea>
+									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput4" readonly><?php $result = explode(" ",$data['author']); echo $result[1];?>, <?php  echo  $result[0][0];?>. <?php $date = $data['datepub'];echo "" .date("(Y)",strtotime($date));?> <?php echo $data['title'];?>. <?php echo $data['fstudy'];?>.</textarea>
 									</div>
 
-									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite"><span>Copy Citation</span></button>
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite-j2"><span>Copy Citation</span></button>
 									</div>
 								</div>
 							</div>
@@ -568,6 +575,13 @@ if (!empty($_GET['id']))
 								
 								<!--  -->
 								<div>
+								<h5 class="cls" id="<?php echo $_GET['id'];?>"></h5>
+									<h5 id="cited_byA" value="<?php 
+									if(!empty($_SESSION['id']))
+									{
+										echo $_SESSION['id'];
+									}
+									?>"></h5>
 								<h2 class="text-left" style="margin-top:10px; font-family:'Lucida Sans';" ><b><?php echo $data['a_title']?></b></h2>
 								<ul class="list-inline" style="font-size: small;">
 									<li class="list-inline-item"><a href="author.php?author=<?php echo $data['a_author'];?>"><u><?php echo $data['a_author']?></u></a></li>
@@ -604,17 +618,17 @@ if (!empty($_GET['id']))
 										<div class="modal-body">
 										MLA
 									<div class="input-group" id="r-cite-area">
-									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['a_author']); echo $result[1];?>, <?php  echo  $result[0];?>. "<?php echo $data['a_title'];?>." <?php $date = $data['a_datepub'];echo "" .date("(Y)",strtotime($date));?> </textarea>
+									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput5" readonly><?php $result = explode(" ",$data['a_author']); echo $result[1];?>, <?php  echo  $result[0];?>. "<?php echo $data['a_title'];?>." <?php $date = $data['a_datepub'];echo "" .date("(Y)",strtotime($date));?> </textarea>
 									</div>
-									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite"><span>Copy Citation</span></button>
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite-a1"><span>Copy Citation</span></button>
 									<br>
 									<br>	
 									APA 
 									<div class="input-group" id="r-cite-area">
-									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['a_author']); echo $result[1];?>, <?php  echo  $result[0][0];?>. <?php $date = $data['a_datepub'];echo "" .date("(Y)",strtotime($date));?>. <?php echo $data['a_title'];?>.</textarea>
+									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput6" readonly><?php $result = explode(" ",$data['a_author']); echo $result[1];?>, <?php  echo  $result[0][0];?>. <?php $date = $data['a_datepub'];echo "" .date("(Y)",strtotime($date));?>. <?php echo $data['a_title'];?>.</textarea>
 									</div>
 
-									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite"><span>Copy Citation</span></button>
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite-a2"><span>Copy Citation</span></button>
 
 										</div>
 										<div class="modal-footer">
@@ -735,7 +749,7 @@ if (!empty($_GET['id']))
 								</ul>
 							</div>
 							<p class="font-weight-normal text-left" style="width:80%;"><?php echo ($data['mobile']); ?></p><br>
-							<button type="button" class="btn btn-sm badge badge-info text-wrap" style="width: 5rem; padding:6px; float:left" onclick="myFunction()" data-bs-toggle="modal" data-bs-target="#modalciting"><span>Cite</span></button>
+							<button type="button" class="btn btn-sm badge badge-info text-wrap" style="width: 5rem; padding:6px; float:left" data-bs-toggle="modal" data-bs-target="#modalciting"><span>Cite</span></button>
 
 							<!-- Citation Modal -->
 							<div class="modal fade" id="modalciting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -870,6 +884,20 @@ function myFunction() {
 
   /* Copy the text inside the text field */
   navigator.clipboard.writeText(copyText.value);
+  
+  /* Alert the copied text */
+  alert("Copy Text to clipboard");
+}
+function myFunction1() {
+  /* Get the text field */
+  var copyText1 = document.getElementById("myInput1" );
+  
+  /* Select the text field */
+  copyText1.select();
+  copyText1.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText1.value);
   
   /* Alert the copied text */
   alert("Copy Text to clipboard");

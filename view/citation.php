@@ -103,7 +103,7 @@ if (isset($_POST['cite_r']) && isset($_POST['id_r']) && isset($_POST['logged_id'
  // Journal
  if (isset($_POST['cite_j']) && isset($_POST['id_j'])) {
     $id = $_POST['id_j'];
-    $citewcount = $_POST['cite_j'];
+    $citecount = $_POST['cite_j'];
   
      $result = mysqli_query($con, "UPDATE tbljournal set cites = '$citecount' WHERE id = '$id'");
      if($result > 0){

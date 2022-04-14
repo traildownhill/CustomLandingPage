@@ -7,7 +7,6 @@ $(document).ready(function (e) {
    
    // Register View
    // Research
-   
    $('a.cls').click(function () {
       // alert("Click");
       var id_r = $(this).attr('id');
@@ -24,13 +23,13 @@ $(document).ready(function (e) {
          data:{view_r:view_r,id_r:id_r},
          success:function(data)
          {
-            alert("I viewed it "+data);
+            // alert("I viewed it "+data);
          }
         });
    });
    
    // Journal
-   $('a.cls1').click(function () {
+   $('a.cls').click(function () {
       alert("Click1");
       var id_j = $(this).attr('id');
       var view = $("#jView" + id).val();
@@ -96,9 +95,10 @@ $(document).ready(function (e) {
    });
    // Register Copied
     // Research
-   $('#id-copy-cite').click(function () {
+   // MLA
+   $('#id-copy-cite-r1').click(function () {
       // alert("Cited");
-      var copyTextarea = document.querySelector('#cite-textarea');
+      var copyTextarea = document.querySelector('#myInput');
       copyTextarea.select();
        try
        {
@@ -107,7 +107,7 @@ $(document).ready(function (e) {
           console.log('Copying text command was ' + msg);
 
           if (msg == "successful") {
-            alert("Cited1");
+            // alert("Cited1");
             //  alert($("#cited_byR").val());
              
             var logged_id = $("#cited_byR").attr("value");
@@ -126,8 +126,141 @@ $(document).ready(function (e) {
                      method:"POST",
                      data:{cite_r:cite_r,id_r:id_r,logged_id:logged_id},
                      success: function (data) {
-                        alert("Cited3: Success");
-                        alert("Cited2:"+data);
+                        alert("Research Cited");
+                     }
+                  });
+          }
+          else {
+             
+          }
+       } catch (err){
+         console.log('Oops, unable to copy');
+        //  alert("Unable to copy citation ");
+       } 
+      return false;
+   });
+   // APA
+   $('#id-copy-cite-r2').click(function () {
+      // alert("Cited1");
+      var copyTextarea = document.querySelector('#myInput1');
+      copyTextarea.select();
+       try
+       {
+          var successful = document.execCommand('copy');
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Copying text command was ' + msg);
+
+          if (msg == "successful") {
+            // alert("Cited1");
+            //  alert($("#cited_byR").val());
+             
+            var logged_id = $("#cited_byJ").attr("value");
+            var id_r = $('h5.cls').attr('id');
+            var cite = $("#Cite" + id_r).val();
+                  if(isNaN(cite)) {
+                     var cite = 0;
+                  } 
+                  cite = parseInt(cite);
+                  cite_r = cite + 1;
+                  
+                  // alert("Cite: "+cite_r);
+                  // alert("Logged: "+logged_id);
+                  $.ajax({
+                     url:"http://localhost/CustomLandingPage/view/citation.php",
+                     method:"POST",
+                     data:{cite_r:cite_r,id_r:id_r,logged_id:logged_id},
+                     success: function (data) {
+                        alert("Research Cited");
+                        // alert("Cited2:"+data);
+                     }
+                  });
+          }
+          else {
+             
+          }
+       } catch (err){
+         console.log('Oops, unable to copy');
+        //  alert("Unable to copy citation ");
+       } 
+      return false;
+   });
+
+   // Journal
+   // MLA
+   $('#id-copy-cite-j1').click(function () {
+      // alert("Cited");
+      var copyTextarea = document.querySelector('#myInput3');
+      copyTextarea.select();
+       try
+       {
+         // alert("Cited1");
+          var successful = document.execCommand('copy');
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Copying text command was ' + msg);
+
+          if (msg == "successful") {
+            // alert("Cited2");
+            var logged_id = $("#cited_byJ").attr("value");
+            var id_j = $('h5.cls').attr('id');
+            // alert(logged_id +'&'+id_j);
+            var cite = $("#Cite" + id_j).val();
+            if(isNaN(cite)) {
+               var cite = 0;
+            } 
+            cite = parseInt(cite);
+            cite_j = cite + 1;
+                  
+                  // alert("Logged:"+logged_id+'&'+cite_j);
+                  $.ajax({
+                     url:"http://localhost/CustomLandingPage/view/citation.php",
+                     method:"POST",
+                     data:{cite_j:cite_j,id_j:id_j,logged_id:logged_id},
+                     success: function (data) {
+                        alert("Journal Cited");
+                     }
+                  });
+          }
+          else {
+             alert("failed copy3");
+          }
+       } catch (err){
+         console.log('Oops, unable to copy');
+        //  alert("Unable to copy citation ");
+       } 
+      return false;
+   });
+   // APA
+   $('#id-copy-cite-j2').click(function () {
+      // alert("Cited1");
+      var copyTextarea = document.querySelector('#myInput4');
+      copyTextarea.select();
+       try
+       {
+          var successful = document.execCommand('copy');
+          var msg = successful ? 'successful' : 'unsuccessful';
+         //  console.log('Copying text command was ' + msg);
+
+          if (msg == "successful") {
+            alert("Cited1");
+            
+            var logged_id = $("#cited_byJ").attr("value");
+            var id_j = $('h5.cls').attr('id');
+            var cite = $("#Cite" + id_j).val();
+            //  alert(logged_id +'&'+id_j+'&'+cite);
+                  if(isNaN(cite)) {
+                     var cite = 0;
+                  } 
+                  cite = parseInt(cite);
+                  cite_j = cite + 1;
+                  
+                  // alert("Cite: "+cite_r);
+                  // alert("Logged: "+logged_id);
+                  $.ajax({
+                     url:"http://localhost/CustomLandingPage/view/citation.php",
+                     method:"POST",
+                     data:{cite_j:cite_j,id_j:id_j,logged_id:logged_id},
+                     success: function (data) {
+                        alert("Journal Cited");
                      }
                   });
           }
@@ -141,7 +274,82 @@ $(document).ready(function (e) {
       return false;
    });
    // Article
-   // Journal
+   // MLA
+   $('#id-copy-cite-a1').click(function () {
+      var copyTextarea = document.querySelector('#myInput5');
+      copyTextarea.select();
+       try
+       {
+          var successful = document.execCommand('copy');
+          var msg = successful ? 'successful' : 'unsuccessful';
+          console.log('Copying text command was ' + msg);
+
+          if (msg == "successful") {
+            var logged_id = $("#cited_byA").attr("value");
+            var id_a = $('h5.cls').attr('id');
+            var cite = $("#Cite" + id_a).val();
+            if(isNaN(cite)) {
+               var cite = 0;
+            } 
+            cite = parseInt(cite);
+            cite_a = cite + 1;
+                  $.ajax({
+                     url:"http://localhost/CustomLandingPage/view/citation.php",
+                     method:"POST",
+                     data:{cite_a:cite_a,id_a:id_a,logged_id:logged_id},
+                     success: function (data) {
+                        alert("Journal Cited");
+                     }
+                  });
+          }
+          else {
+             alert("failed copy3");
+          }
+       } catch (err){
+         console.log('Oops, unable to copy');
+        //  alert("Unable to copy citation ");
+       } 
+      return false;
+   });
+   // APA
+   $('#id-copy-cite-a2').click(function () {
+      var copyTextarea = document.querySelector('#myInput6');
+      copyTextarea.select();
+       try
+       {
+          var successful = document.execCommand('copy');
+          var msg = successful ? 'successful' : 'unsuccessful';
+         //  console.log('Copying text command was ' + msg);
+
+          if (msg == "successful") {
+            
+            var logged_id = $("#cited_byA").attr("value");
+            var id_a = $('h5.cls').attr('id');
+            var cite = $("#Cite" + id_a).val();
+                  if(isNaN(cite)) {
+                     var cite = 0;
+                  } 
+                  cite = parseInt(cite);
+                  cite_a = cite + 1;
+             
+                  $.ajax({
+                     url:"http://localhost/CustomLandingPage/view/citation.php",
+                     method:"POST",
+                     data:{cite_a:cite_a,id_a:id_a,logged_id:logged_id},
+                     success: function (data) {
+                        alert("Journal Cited");
+                     }
+                  });
+          }
+          else {
+             
+          }
+       } catch (err){
+         console.log('Oops, unable to copy');
+        //  alert("Unable to copy citation ");
+       } 
+      return false;
+   });
    // News
 
    // e.preventDefault();
