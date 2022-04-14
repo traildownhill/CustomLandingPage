@@ -15,7 +15,7 @@ include "../admin/research/functions/functions.php";
   <meta content="" name="description">
   
   <!-- Favicons -->
-  <link href="../resource/img/favicon.png" rel="icon">
+  <link href="../resource/img/logo.png" rel="icon">
   <link href="../resource/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -266,30 +266,23 @@ if (!empty($_GET['id']))
 										<span aria-hidden="true">&times;</span>
 									</button>
 									</div>
+									<!-- Body research -->
 									<div class="modal-body">
-									<!-- Navigation -->
-									<nav class="navbar navbar-expand-md navbar-light bg-light">
-										<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-											<span class="navbar-toggler-icon"></span>
-										</button>
-										<div class="collapse navbar-collapse" id="navbarNav">
-											<ul class="navbar-nav">
-												<li class="nav-item active">
-												<a class="nav-link" href="#">MLA <span></span></a>
-												</li>
-												<li class="nav-item">
-												<a class="nav-link" href="#">APA</a>
-												</li>
-											</ul>
-										</div>
-									</nav>
-									<!-- Body -->
+									MLA
 									<div class="input-group" id="r-cite-area">
-										<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="cite-textarea">
-										Author's Last name, First name. "Title of Source." Title of Container, Other Contributors, Version, Numbers, Publisher, Publication Date, Location. Title of Second Container, Other Contributors, Version, Number, Publisher, Publication Date, Location.	
-										</textarea>
+									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['main_author']); echo $result[1];?>, <?php  echo  $result[0];?>. et.al. "<?php echo $data['title'];?>." <?php echo $data['field_of_study'];?> <?php $date = $data['date_publish'];echo "" .date("(Y)",strtotime($date));?> </textarea>
 									</div>
-									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite"><span>Copy Citation</span></button>
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite" onclick="myFunction()"><span>Copy Citation</span></button>
+									<br>
+									<br>	
+									APA 
+									<div class="input-group" id="r-cite-area">
+									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput1" readonly><?php $result = explode(" ",$data['main_author']); echo $result[1];?>, <?php  echo  $result[0][0];?>. <?php echo $data['co_authors'];?>. <?php $date = $data['date_publish'];echo "" .date("(Y)",strtotime($date));?> <?php echo $data['title'];?>. <?php echo $data['field_of_study'];?>.</textarea>
+									</div>
+
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite" onclick="myFunction()" ><span>Copy Citation</span></button>
+
+									</div>
 
 									</div>
 								</div>
@@ -445,8 +438,21 @@ if (!empty($_GET['id']))
 										<span aria-hidden="true">&times;</span>
 									</button>
 									</div>
+									
 									<div class="modal-body">
-									...
+									MLA
+									<div class="input-group" id="r-cite-area">
+									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['author']); echo $result[1];?>, <?php  echo  $result[0];?>. "<?php echo $data['title'];?>." <?php echo $data['fstudy'];?> <?php $date = $data['datepub']; echo "" .date("(Y)",strtotime($date));?> </textarea>
+									</div>
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite"><span>Copy Citation</span></button>
+									<br>
+									<br>
+									APA 
+									<div class="input-group" id="r-cite-area">
+									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['author']); echo $result[1];?>, <?php  echo  $result[0][0];?>. <?php $date = $data['datepub'];echo "" .date("(Y)",strtotime($date));?> <?php echo $data['title'];?>. <?php echo $data['fstudy'];?>.</textarea>
+									</div>
+
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite"><span>Copy Citation</span></button>
 									</div>
 								</div>
 							</div>
@@ -586,19 +592,32 @@ if (!empty($_GET['id']))
 							?>
 
 							<!-- Citation Modal -->
-							<div class="modal fade" id="article-citing" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-								<div class="modal-dialog">
+							<div class="modal fade" id="article-citing" tabindex="-1" role="diaglog" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered" role="document">
 									<div class="modal-content">
 										<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										<h5 class="modal-title" id="exampleModalCenterTitle">Cite</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+										</button>	
 										</div>
 										<div class="modal-body">
-										...
+										MLA
+									<div class="input-group" id="r-cite-area">
+									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['a_author']); echo $result[1];?>, <?php  echo  $result[0];?>. "<?php echo $data['a_title'];?>." <?php $date = $data['a_datepub'];echo "" .date("(Y)",strtotime($date));?> </textarea>
+									</div>
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite"><span>Copy Citation</span></button>
+									<br>
+									<br>	
+									APA 
+									<div class="input-group" id="r-cite-area">
+									<textarea rows="7" cols="60"class="form-control" aria-label="With textarea" id="myInput" readonly><?php $result = explode(" ",$data['a_author']); echo $result[1];?>, <?php  echo  $result[0][0];?>. <?php $date = $data['a_datepub'];echo "" .date("(Y)",strtotime($date));?>. <?php echo $data['a_title'];?>.</textarea>
+									</div>
+
+									<button type="button" class="btn btn-md badge badge-info text-wrap cls" style="width: 7rem; padding:6px; float:left" id="id-copy-cite"><span>Copy Citation</span></button>
+
 										</div>
 										<div class="modal-footer">
-										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-										<button type="button" class="btn btn-primary">Save changes</button>
 										</div>
 									</div>
 								</div>
@@ -651,13 +670,13 @@ if (!empty($_GET['id']))
 		// include "";
 		// $pdf_file = $data['pdf_file'];
 		// $fstudy = $data['field_of_study'];
-		$tags = $data['tags'];
+		// $tags = $data['tagging'];
 		?>
 			<br><br><br><br>
 			<!--View Research-->
 			<div class="container">
 				<div id="result">
-				<!-- <a href="../research.php"><button class="btn btn-dark btn-sm"  style="float:left">Back</button></a> -->
+				<a href="../research.php"><button class="btn btn-dark btn-sm"  style="float:left">Back</button></a>
 			</div>	
 			</div><br><br>
 			<div class="container">
@@ -697,7 +716,7 @@ if (!empty($_GET['id']))
 										?>
 										<div>
 											
-											<!-- <a href="../admin/news/<?php //echo $data['pdf_file']?>"><button type ="button" class="btn btn-outline-primary btn-sm float-right" style="position:relative;bottom:40px;" name="btn-fullview"><i class="fa fa-file-text"> View FullNews&nbsp;</i></button></a> -->
+											<a href="../admin/news/<?php //echo $data['pdf_file']?>"><button type ="button" class="btn btn-outline-primary btn-sm float-right" style="position:relative;bottom:40px;" name="btn-fullview"><i class="fa fa-file-text"> View FullNews&nbsp;</i></button></a>
 										</div>
 										<?php
 									}
@@ -716,9 +735,24 @@ if (!empty($_GET['id']))
 								</ul>
 							</div>
 							<p class="font-weight-normal text-left" style="width:80%;"><?php echo ($data['mobile']); ?></p><br>
-							<ul class="list-inline" style="font-size: small;">
-                     	<li class="list-inline-item" id="View<?php echo $data['id'];?>" value="<?php echo $data['views'];?>"><b>Views: <?php echo $data['views'];?></b></li>
-                     	<!-- <li class="list-inline-item" id="Cite<?php echo $data['id'];?>" value="<?php echo $data['cites'];?>"><b>Cite: <?php echo $data['cites'];?></b></li></ul> -->
+							<button type="button" class="btn btn-sm badge badge-info text-wrap" style="width: 5rem; padding:6px; float:left" onclick="myFunction()" data-bs-toggle="modal" data-bs-target="#modalciting"><span>Cite</span></button>
+
+							<!-- Citation Modal -->
+							<div class="modal fade" id="modalciting" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+											
+										<div class="modal-footer">
+										<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										<button type="button" class="btn btn-primary">Save changes</button>
+										</div>
+									</div>
+								</div>
+							</div>
 		<!-- ============================================================== -->
 				</div>
 				</div>
@@ -732,7 +766,7 @@ if (!empty($_GET['id']))
 				<!-- <div class="row"> -->
 				<div class="card-group">
 				<?php
-				$result1 = get_newsrelated($connect,$tags);
+				$result1 = get_newsrelated($connect,$fstudy,$tags);
 				if ($result1->num_rows>0) {
 					while ($data1 = mysqli_fetch_array($result1))
 					{
@@ -792,7 +826,7 @@ if (!empty($_GET['id']))
   
   <script src="../resource/js/main.js"></script>
   <!-- <script src="../script/main.js"></script> -->
-  <script src="./main.js"></script>
+  <script src="main.js"></script>
   <script>
     $(document).ready(function () {
     <?php
@@ -825,5 +859,20 @@ if (!empty($_GET['id']))
      });
   </script>
   
+  <script>
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput" );
+  
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
+  /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+  
+  /* Alert the copied text */
+  alert("Copy Text to clipboard");
+}
+</script>
 
