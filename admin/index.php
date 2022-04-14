@@ -228,23 +228,7 @@
             <!--==========================
               Result Section
             ============================-->
-            <section id="services" class="section-bg">
-              <div class="container">
-
-                <header class="section-header">
-
-                </header><br>
-
-                <div class="row">
-
-                </div>
-
-              </div>
-            </section>
-
-        <!--==========================
-            View all Section
-          ============================-->
+           
 
           </main>
 

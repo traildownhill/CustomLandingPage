@@ -92,7 +92,7 @@ $(document).ready(function (e) {
          {
             alert("I viewed 3 it "+data);
          }
-        });
+        }); 
    });
    // Register Copied
     // Research

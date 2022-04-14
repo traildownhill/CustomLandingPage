@@ -36,7 +36,7 @@ if(isset($_POST['update']))
 		if($result)
 		{
 			$_SESSION['status']= "Data Updated Successfully";
-			header('Location: index.php');
+		
 		}
 		else
 		{

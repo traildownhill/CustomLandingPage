@@ -45,7 +45,7 @@ if(isset($_POST['update_events']))
 	} else {	
 		//updating the table
 		$result = mysqli_query($mysqli, "UPDATE tblevents SET event_name=' $event_name ', event_description='$event_description', date='$date', time='$time' WHERE id=$id");
-		header('Location: index.php');
+		
 		
 		//redirectig to the display page. In our case, it is index.php
 		if($result)

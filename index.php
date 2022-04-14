@@ -162,19 +162,6 @@ include "./admin/research/functions/Message.func.php";
   </section>
   
   <!-- #intro -->
-  
-
-  <main id="main">
-
-    <!--==========================
-      Result Section
-    ============================-->
-
-<!--==========================
-    View all Section
-  ============================-->
-  </main>
-
 
   
   <!--==========================

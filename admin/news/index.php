@@ -8,7 +8,7 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="../img/favicon.png" rel="icon">
+  <link href="../img/logo.png" rel="icon">
   <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -337,20 +337,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
     <!--==========================
       Result Section
     ============================-->
-    <section id="services" class="section-bg">
-      <div class="container">
-
-        <header class="section-header">
-    
-        </header><br>
-
-        <div class="row">
-
-        </div>
-
-      </div>
-    </section>
-
+   
 
 
   </main>
