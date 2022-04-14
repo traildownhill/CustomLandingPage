@@ -176,7 +176,7 @@ if (!empty($_GET['author']))
 								<div class="card">
 									<div class="card-body">
 										<!-- change function to the designated function ofyouassign management -->
-										<a href="action.php?id=<?php echo $data['id'];?>"><p class="card-title"><?php echo $data['title'];?></p></a>
+										<a href="action.php?u=r&id=<?php echo $data['id'];?>"><p class="card-title"><?php echo $data['title'];?></p></a>
 										<p class="card-text"><small class="text-muted"><?php ?></small></p>
 									</div>
 								</div>
