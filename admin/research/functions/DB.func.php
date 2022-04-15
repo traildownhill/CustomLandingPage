@@ -264,10 +264,10 @@ function get_journalfilter($connect,$title, $req){
 	foreach($keywords as $word)
 	{
 		if($req == "v"){
-			$sql_string = "SELECT * FROM tbljournal WHERE description LIKE '%" . $word . "%' OR title LIKE '%" . $word ."%'  ORDER BY views DESCOR";
+			$sql_string = "SELECT * FROM tbljournal WHERE description LIKE '%" . $word . "%' OR title LIKE '%" . $word ."%'  ORDER BY views DESC OR";
 		}
 		else if($req == "c"){
-			$sql_string = "SELECT * FROM tbljournal WHERE description LIKE '%" . $word . "%' OR title LIKE '%" . $word ."%'  ORDER BY cites DESCOR";
+			$sql_string = "SELECT * FROM tbljournal WHERE description LIKE '%" . $word . "%' OR title LIKE '%" . $word ."%'  ORDER BY cites DESC OR";
 		}
 	}
 
@@ -289,10 +289,10 @@ function get_articlefilter($connect,$title, $req){
 	foreach($keywords as $word)
 	{
 		if($req == "v"){
-			$sql_string = "SELECT * FROM tblarticle WHERE a_description LIKE '%" . $word . "%' OR a_title LIKE '%" . $word ."%' ORDER BY views DESC OR";
+			$sql_string = "SELECT * FROM tblarticle WHERE a_description LIKE '%" . $word . "%' OR a_title LIKE '%" . $word ."%' ORDER BY a_views DESC OR";
 		}
 		else if($req == "c"){
-			$sql_string = "SELECT * FROM tblarticle WHERE a_description LIKE '%" . $word . "%' OR a_title LIKE '%" . $word ."%' ORDER BY cites DESC OR";
+			$sql_string = "SELECT * FROM tblarticle WHERE a_description LIKE '%" . $word . "%' OR a_title LIKE '%" . $word ."%' ORDER BY a_cites DESC OR";
 		}
 		
 	}
@@ -315,10 +315,10 @@ function get_newsfilter($connect,$title, $req){
 	foreach($keywords as $word)
 	{
 		if($req == "v"){
-			$sql_string = "SELECT * FROM tblarticle WHERE a_description LIKE '%" . $word . "%' OR a_title LIKE '%" . $word ."%' ORDER BY views DESC OR";
+			$sql_string = "SELECT * FROM tblnews WHERE name LIKE '%" . $word . "%' OR mobile LIKE '%" . $word ."%' ORDER BY views DESC OR";
 		}
 		else if($req == "c"){
-			$sql_string = "SELECT * FROM tblarticle WHERE a_description LIKE '%" . $word . "%' OR a_title LIKE '%" . $word ."%' ORDER BY cites DESC OR";
+			$sql_string = "SELECT * FROM tblnews WHERE name LIKE '%" . $word . "%' OR mobile LIKE '%" . $word ."%' ORDER BY cites DESC OR";
 		}
 	}
 

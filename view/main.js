@@ -8,7 +8,6 @@ $(document).ready(function (e) {
    // Register View
    // Research
    $('a.cls').click(function () {
-      // alert("Click");
       var id_r = $(this).attr('id');
       var view = $("#rView" + id_r).val();
       if(isNaN(view)) {
@@ -29,8 +28,7 @@ $(document).ready(function (e) {
    });
    
    // Journal
-   $('a.cls').click(function () {
-      alert("Click1");
+   $('a.cls1').click(function () {
       var id_j = $(this).attr('id');
       var view = $("#jView" + id).val();
       if(isNaN(view)) {
@@ -45,14 +43,13 @@ $(document).ready(function (e) {
          data:{view_j:view_j,id_j:id_j},
          success:function(data)
          {
-            alert("I viewed 1 it "+data);
+            // alert("I viewed 1 it "+data);
          }
         });
    });
 
    // Article
    $('a.cls2').click(function () {
-      alert("Click2");
       var id_a = $(this).attr('id');
       var view = $("#aView" + id).val();
       if(isNaN(view)) {
@@ -67,14 +64,13 @@ $(document).ready(function (e) {
          data:{view_a:view_a,id_a:id_a},
          success:function(data)
          {
-            alert("I viewed 2 it "+data);
+            // alert("I viewed 2 it "+data);
          }
         });
    });
    
    // News
    $('a.cls3').click(function () {
-      alert("Click3");
       var id_n = $(this).attr('id');
       var view = $("#nView" + id).val();
       if(isNaN(view)) {
@@ -89,7 +85,7 @@ $(document).ready(function (e) {
          data:{view_n:view_n,id_n:id_n},
          success:function(data)
          {
-            alert("I viewed 3 it "+data);
+            // alert("I viewed 3 it "+data);
          }
         }); 
    });
@@ -97,7 +93,6 @@ $(document).ready(function (e) {
     // Research
    // MLA
    $('#id-copy-cite-r1').click(function () {
-      // alert("Cited");
       var copyTextarea = document.querySelector('#myInput');
       copyTextarea.select();
        try
@@ -118,9 +113,6 @@ $(document).ready(function (e) {
                   } 
                   cite = parseInt(cite);
                   cite_r = cite + 1;
-                  
-                  // alert("Cite: "+cite_r);
-                  alert("Logged: "+logged_id);
                   $.ajax({
                      url:"http://localhost/CustomLandingPage/view/citation.php",
                      method:"POST",
@@ -141,7 +133,6 @@ $(document).ready(function (e) {
    });
    // APA
    $('#id-copy-cite-r2').click(function () {
-      // alert("Cited1");
       var copyTextarea = document.querySelector('#myInput1');
       copyTextarea.select();
        try
@@ -188,7 +179,6 @@ $(document).ready(function (e) {
    // Journal
    // MLA
    $('#id-copy-cite-j1').click(function () {
-      // alert("Cited");
       var copyTextarea = document.querySelector('#myInput3');
       copyTextarea.select();
        try
@@ -231,7 +221,6 @@ $(document).ready(function (e) {
    });
    // APA
    $('#id-copy-cite-j2').click(function () {
-      // alert("Cited1");
       var copyTextarea = document.querySelector('#myInput4');
       copyTextarea.select();
        try

@@ -106,8 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
   </button>
   <a href="journal.php"><button type="button" class="btn btn-outline-primary btn-sm">
   <i class="fa fa-refresh" aria-hidden="true"></i>
-  </button>
-  </a>
+  </button></a>
   <br/>
   <br/>
 <style>
@@ -129,105 +128,113 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
 </style>
 <!-- Modal New Journal -->
 <div class="modal fade " id="create-project" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="create-project-label" aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered modal-sm w-50" role="document">
-   <div class="modal-content">
-     <form method="post" name="AddJournal" action="journal.php" enctype="multipart/form-data">
+<div class="modal-dialog modal-dialog-centered modal-sm w-50" role="document"><
+  <div class="modal-content">
+  <form method="post" name="AddJournal" action="journal.php" enctype="multipart/form-data">
        
-        <div class="modal-header">
-         <h5 class="modal-title" id="create-project-label">Create Journal</h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-        </div>
+       <div class="modal-header">
+        <h5 class="modal-title" id="create-project-label">Create Journal</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>
         <div class="modal-body ">
+        
         <div class="form-group">
-           <label for="author">Select Author</label>
-                <select name="author"  id="Select Author" class="custom-select" required>
-              <option  hidden>CHOOSE...</option>
-              <?php $authors = get_authors($connect); while ($author = mysqli_fetch_array($authors)) { 
-                if ($author['role'] !="Administrator") {
-                  ?>
-                  <option value="<?php echo $author['name'];?>"><?php echo $author['name'];?></option>
-                <?php }} ?>
-              </select>
-           <div class="form-group">
-             <label for="title">Title</label>
-             <input type="text" class="form-control" id="title" name="title"  required="required">
-           </div>
-           <div class="form-group">
-							<label for="description">Description</label>
-							<textarea class="form-control" id="description" name="description" required="required"></textarea>
-					</div>
-         </div>
-          <div class="form-group">
-           <label for="datepub">Date Published</label>
-           <input type="date" class="form-control" id="datepub" name="datepub"  required="required">
-         </div>
-         <div class="form-group">
-        <label for="fstudy">Field of Study</label>
-        <select class=" selectpicker form-control" title="Choose..." data-style="btn-new" multiple data-selected-text-format="count" data-live-search="true" data-mdb-filter="true"id="ftudy" name="fstudy[]" value="">
-          
-            <option>Agricultural and Food Sciences</option>
-            <option>Art</option>
-            <option>Biology</option>
-            <option>Business</option>
-            <option>Computer Science</option>
-            <option>Chemistry</option>
-            <option>Economics</option>
-            <option>Education</option>
-            <option>Engineering</option>
-            <option>Environmental Science</option>
-            <option>Geography</option>
-            <option>Geology</option>
-            <option>History</option>
-            <option>Law</option>
-            <option>Linguistics</option>
-            <option>Materials Science</option>
-            <option>Mathematics</option>
-            <option>Medicine</option>
-            <option>Philosophy</option>
-            <option>Physics</option>
-            <option>Political Science</option>
-            <option>Psychology</option>
-            <option>Sociology</option>
-        </select>
-        </div>
-         <div class="form-group">
-          <label for="files">Add (pdf, txt or docs)</label>
-          <input type="file" class="form-control-file" id="files" name="files" oninvalid="alert('Hey, upload your file')" required="required">
-        </div>
-      
+         <label for="author">Select Author</label>
+          <select name="author"  id="Select Author" class="custom-select" required>
+            <option  hidden>CHOOSE...</option>
+            <?php 
+            $authors = get_authors($connect); 
+            while($author = mysqli_fetch_array($authors)) 
+            { 
+              if ($author['role'] !="Administrator") {
+              ?>
+                 <option value="<?php echo $author['name'];?>"><?php echo $author['name'];?></option>
+               <?php 
+              }
+            } 
+            ?>
+            </select>
+       </div> 
+       
         <div class="form-group">
-            <label class="label">Tags</label><br>
-            <select class="selectpicker form-control"  title="Choose..." data-style="btn-new" multiple data-selected-text-format="count" data-live-search="true" data-mdb-filter="true"id="tags" name="tagging[]">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title"  required="required">
+        </div>
           
-            <option>#edchat</option>
-            <option>#K12</option>
-            <option>#learning</option>
-            <option>#edleadership</option>
-            <option>#edtech</option>
-            <option>#engchat</option>
-            <option>#literacy</option>
-            <option>#scichat</option>
-            <option>#mathchat</option>
-            <option>#edreform</option>
-        </select>
-          </div>
-          
-       
-        <input type="hidden" name="created" value="<?php echo date("Y-m-d"); ?>"/>
-        <input type="hidden" name="create" value="create"/>
-       
-        <div class="modal-footer">
-          <button class="btn btn-primary">Save</button>
-          <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+         <div class="form-group">
+             <label for="description">Description</label>
+             <textarea class="form-control" id="description" name="description" required="required"></textarea>
+         </div>
+        
+         <div class="form-group">
+          <label for="datepub">Date Published</label>
+          <input type="date" class="form-control" id="datepub" name="datepub"  required="required">
         </div>
 
+        <div class="form-group">
+       <label for="fstudy">Field of Study</label>
+       <select class=" selectpicker form-control" title="Choose..." data-style="btn-new" multiple data-selected-text-format="count" data-live-search="true" data-mdb-filter="true"id="ftudy" name="fstudy[]" value="">
+         
+           <option>Agricultural and Food Sciences</option>
+           <option>Art</option>
+           <option>Biology</option>
+           <option>Business</option>
+           <option>Computer Science</option>
+           <option>Chemistry</option>
+           <option>Economics</option>
+           <option>Education</option>
+           <option>Engineering</option>
+           <option>Environmental Science</option>
+           <option>Geography</option>
+           <option>Geology</option>
+           <option>History</option>
+           <option>Law</option>
+           <option>Linguistics</option>
+           <option>Materials Science</option>
+           <option>Mathematics</option>
+           <option>Medicine</option>
+           <option>Philosophy</option>
+           <option>Physics</option>
+           <option>Political Science</option>
+           <option>Psychology</option>
+           <option>Sociology</option>
+       </select>
+       </div>
+
+        <div class="form-group">
+         <label for="files">Add (pdf, txt or docs)</label>
+         <input type="file" class="form-control-file" id="files" name="files" oninvalid="alert('Hey, upload your file')" required="required">
         </div>
-      </form>
-    </div>
-   </div>
-   </div>
+     
+        <div class="form-group">
+           <label class="label">Tags</label><br>
+           <select class="selectpicker form-control"  title="Choose..." data-style="btn-new" multiple data-selected-text-format="count" data-live-search="true" data-mdb-filter="true"id="tags" name="tagging[]">
+         
+           <option>#edchat</option>
+           <option>#K12</option>
+           <option>#learning</option>
+           <option>#edleadership</option>
+           <option>#edtech</option>
+           <option>#engchat</option>
+           <option>#literacy</option>
+           <option>#scichat</option>
+           <option>#mathchat</option>
+           <option>#edreform</option>
+          </select>
+         </div>
+         
+      
+       <input type="hidden" name="created" value="<?php echo date("Y-m-d"); ?>"/>
+       <input type="hidden" name="create" value="create"/>
+      
+       <div class="modal-footer">
+         <button class="btn btn-primary">Save</button>
+         <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+       </div>
+        </div>
+     </form>
+  </div>
+</div>
+</div>
    <?php
 // if(!empty($_POST["tagging"])) {
 //     foreach($_POST['tagging'] as $tags) {
@@ -311,8 +318,8 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
 </tbody>
 </table>
 </div>
-</div>
-</div>
+
+
 <script src="../../resource/assets/datatables.min.js"></script>
 <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
 <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
