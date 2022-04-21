@@ -55,7 +55,7 @@ include "./admin/research/functions/Message.func.php";
   <header id="header" class="fixed-top">
     <div class="container">
       <div class="logo float-left">
-       <a href="#intro" class="scrollto"><img src="./resource/img/logo.png" alt="" class="img-fluid">&nbsp;<strong>AURESPOR</strong></a>
+       <a href="#intro" class="scrollto"><img src="./resource/img/logo.png" alt="" class="img-fluid">&nbsp;<strong>AU RESEARCH PORTAL</strong></a>
       </div>
       <!-- Condition for user -->
       <nav class="main-nav float-right d-none d-lg-block" >

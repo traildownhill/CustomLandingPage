@@ -193,7 +193,6 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
        <th scope="col">ID</th>
        <th scope="col">Name</th>
        <th scope="col">Email</th>
-       <th scope="col">Status</th>
        <th scope="col">Category</th>
        <th scope="col">Subscription</th>
        <th scope="col" align="center">Action</th>
@@ -209,7 +208,6 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
          <td><?php echo $data['id']?></td>
          <td><?php echo $data['name']?></a></td>
          <td><?php echo $data['username']?></a></td>
-         <td><?php echo $data['status']?></td>
          <td><?php echo $data['ucategory']?></td>
          <td><?php echo $data['subcribe']?></td>
          <td><?php

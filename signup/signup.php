@@ -42,11 +42,11 @@ if(isset($_POST['btnsubmit']))
                 'cost' => 12,];
                 $hash_pass = password_hash("$password", PASSWORD_BCRYPT, $options);
                 //insert to db
-                $query = "INSERT INTO tblaccount VALUES ('','$name', '$username','$hash_pass','$email', 'Inactive', 'User','No','','')";
+                $query = "INSERT INTO tblaccount VALUES ('','$name', '$username','$hash_pass','$email', 'Active', 'User','No','','')";
                 if(mysqli_query($connect, $query))
                 {
                     echo "<script>alert('New account $username has successfully added.' );</script>";
-                    header("Location: ../index.php");
+                    // header("Location: ../index.php");
                 }
                 else
                 {

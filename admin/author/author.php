@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
      <form method="post" name="AddJournal" action="author.php" enctype="multipart/form-data">
        
         <div class="modal-header">
-         <h5 class="modal-title" id="create-project-label">Create Journal</h5>
+         <h5 class="modal-title" id="create-project-label">Create Author</h5>
          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>

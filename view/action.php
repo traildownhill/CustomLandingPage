@@ -125,11 +125,7 @@ include "../admin/research/functions/functions.php";
   </header>
 <body >
   <h3 hidden name="logged_id" hidden><?php echo $_SESSION['id'];?></h3>
-<?php
 
-if(empty($_SESSION['id']))
-{
-		?>
 		<style>
 			p{
 			text-overflow: ellipsis; 
@@ -137,10 +133,9 @@ if(empty($_SESSION['id']))
 			white-space: nowrap;
 		}
 		</style>
-		<?php
-}
 
 
+<?php
 // Get Research id
 if (!empty($_GET['id'])) 
 {
@@ -235,7 +230,7 @@ if (!empty($_GET['id']))
 									<li class="list-inline-item">* <?php echo $data['field_of_study'];?></li>
 								</ul>
 							</div>
-							<p class="font-weight-normal text-left" style="width:80%;" maxlength="200"><?php echo ($data['abstract']);?></p><br>
+							<p class="font-weight-normal text-left" style="width:80%;"><?php echo ($data['abstract']);?></p><br>
 							<ul class="list-inline" style="font-size: small;">
                      	<li class="list-inline-item" id="View<?php echo $data['id'];?>" value="<?php echo $data['views'];?>"><b>Views: <?php echo $data['views'];?></b></li>
                      	<li class="list-inline-item" id="Cite<?php echo $data['id'];?>" value="<?php echo $data['cites'];?>"><b>Cite: <?php echo $data['cites'];?></b></li>
@@ -296,11 +291,12 @@ if (!empty($_GET['id']))
 				<!-- <div class="row"> -->
 				<div class="card-group">
 				<?php
+				if(!empty($_SESSION['id'])){
 				$result1 = get_researchrelated($connect,$fstudy,$tags);
 				if ($result1->num_rows>0) {
 					while ($data1 = mysqli_fetch_array($result1))
 					{
-						if(!empty($_SESSION['id'])){
+						
 							if($data1['id'] != $_GET['id'])
 							{
 								?>
@@ -308,7 +304,7 @@ if (!empty($_GET['id']))
 									<div class="card">
 										<div class="card-body">
 											<!-- change function to the designated function ofyouassign management -->
-											<a href="action.php?u=r&id=<?php echo $data1['id'];?>"><p class="card-title"><?php echo $data['title'];?></p></a>
+											<a href="action.php?u=r&id=<?php echo $data1['id'];?>"><p class="card-title"><?php echo $data1['title'];?></p></a>
 											<p class="card-text"><small class="text-muted"><?php ?></small></p>
 										</div>
 									</div>
@@ -316,8 +312,6 @@ if (!empty($_GET['id']))
 						<?php
 							}
 						}
-						
-
 					}
 				}
 				?>
@@ -690,7 +684,7 @@ if (!empty($_GET['id']))
 			<!--View Research-->
 			<div class="container">
 				<div id="result">
-				<a href="../research.php"><button class="btn btn-dark btn-sm"  style="float:left">Back</button></a>
+				<!-- <a href="../research.php"><button class="btn btn-dark btn-sm"  style="float:left">Back</button></a> -->
 			</div>	
 			</div><br><br>
 			<div class="container">
@@ -730,7 +724,7 @@ if (!empty($_GET['id']))
 										?>
 										<div>
 											
-											<a href="../admin/news/<?php //echo $data['pdf_file']?>"><button type ="button" class="btn btn-outline-primary btn-sm float-right" style="position:relative;bottom:40px;" name="btn-fullview"><i class="fa fa-file-text"> View FullNews&nbsp;</i></button></a>
+											<!-- <a href="../admin/news/<?php //echo $data['pdf_file']?>"><button type ="button" class="btn btn-outline-primary btn-sm float-right" style="position:relative;bottom:40px;" name="btn-fullview"><i class="fa fa-file-text"> View FullNews&nbsp;</i></button></a> -->
 										</div>
 										<?php
 									}
@@ -780,27 +774,27 @@ if (!empty($_GET['id']))
 				<!-- <div class="row"> -->
 				<div class="card-group">
 				<?php
-				$result1 = get_newsrelated($connect,$fstudy,$tags);
-				if ($result1->num_rows>0) {
-					while ($data1 = mysqli_fetch_array($result1))
-					{
-						if($data1['id'] != $_GET['id'])
-						{
+				// $result1 = get_newsrelated($connect,$tags);
+				// if ($result1->num_rows>0) {
+				// 	while ($data1 = mysqli_fetch_array($result1))
+				// 	{
+				// 		if($data1['id'] != $_GET['id'])
+				// 		{
 						?>
 						
-							<div class="col-md-3 col-sm-5">
+							<!-- <div class="col-md-3 col-sm-5">
 							<div class="card">
 								<div class="card-body">
-									<!-- change function to the designated function ofyouassign management -->
-									<a href="action.php?id=<?php echo $data1['id'];?>"><p class="card-title"><?php echo $data1['title'];?></p></a>
+									change function to the designated function ofyouassign management
+									<a href="action.php?id=<?php //echo $data1['id'];?>"><p class="card-title"><?php //echo $data1['title'];?></p></a>
 									<p class="card-text"><small class="text-muted"><?php ?></small></p>
 								</div>
 							</div>
-							</div>
+							</div> -->
 					<?php
-						}
-					}
-				}
+				// 		}
+				// 	}
+				// }
 				?>
 				</div>
 				</div>
@@ -839,8 +833,8 @@ if (!empty($_GET['id']))
   <!-- Template Main Javascript File -->
   
   <script src="../resource/js/main.js"></script>
-  <!-- <script src="../script/main.js"></script> -->
   <script src="main.js"></script>
+  <script src="./filter.js"></script>
   <script>
     $(document).ready(function () {
     <?php
@@ -870,37 +864,36 @@ if (!empty($_GET['id']))
        }
      }
      ?>
+	//   copy restricted
+	function myFunction() {
+		/* Get the text field */
+		var copyText = document.getElementById("myInput" );
+		
+		/* Select the text field */
+		copyText.select();
+		copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+		/* Copy the text inside the text field */
+		navigator.clipboard.writeText(copyText.value);
+		
+		/* Alert the copied text */
+		alert("Copy Text to clipboard");
+		}
+		function myFunction1() {
+		/* Get the text field */
+		var copyText1 = document.getElementById("myInput1" );
+		
+		/* Select the text field */
+		copyText1.select();
+		copyText1.setSelectionRange(0, 99999); /* For mobile devices */
+
+		/* Copy the text inside the text field */
+		navigator.clipboard.writeText(copyText1.value);
+		
+		/* Alert the copied text */
+		alert("Copy Text to clipboard");
+		}
      });
   </script>
-  
-  <script>
-function myFunction() {
-  /* Get the text field */
-  var copyText = document.getElementById("myInput" );
-  
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
-  /* Copy the text inside the text field */
-  navigator.clipboard.writeText(copyText.value);
-  
-  /* Alert the copied text */
-  alert("Copy Text to clipboard");
-}
-function myFunction1() {
-  /* Get the text field */
-  var copyText1 = document.getElementById("myInput1" );
-  
-  /* Select the text field */
-  copyText1.select();
-  copyText1.setSelectionRange(0, 99999); /* For mobile devices */
-
-  /* Copy the text inside the text field */
-  navigator.clipboard.writeText(copyText1.value);
-  
-  /* Alert the copied text */
-  alert("Copy Text to clipboard");
-}
-</script>
 

@@ -147,17 +147,11 @@
       position: relative;
       
      }
-     <?php
-     if(empty($_SESSION['id'])){
-       ?>
        p{
-        text-overflow: ellipsis; 
-        overflow: hidden; 
-        white-space: nowrap;
+        text-overflow:ellipsis; 
+        overflow:hidden;
+        white-space:nowrap;
 		    }
-       <?php
-     }
-     ?>
   </style>
   <div class="container" style="padding-left: 10%;">
   <header class="section-header">
@@ -304,13 +298,13 @@ if(isset($_GET["req"]))
                  <div class="box">
                     <h4 class="title"><a href="./view/action.php?u=r&id=<?php echo $data['id'];?>" class="cls" id="<?php echo $data['id'];?>" ><span ><?php echo $data['title'];?></span></a></h4>
                     <ul class="list-inline" style="padding-left: 40px; font-size: small;">
-                       <li class="list-inline-item" value="<?php echo $data['main_author'];?>"><b><u><span><?php echo $data['main_author'];?></span></u></b></li>
+                    <li class="list-inline-item"><a href="./view/author.php?u=r&author=<?php echo $data['main_author'];?>"><u><?php echo $data['main_author']?></u></a></li>
                        
                        <?php
                        foreach (explode(",", $data['co_authors']) as $variable => $tk) {
                        $variable>0;
                        $variable++;
-                       ?><li class="list-inline-item" value="<?php echo $tk;?>"><u><?php echo ",$tk";?></u></li> <?php
+                       ?><li class="list-inline-item" id="coauth-<?php echo "$variable";?>"><a href="./view/author.php?author=<?php echo "$tk";?>"><u><?php echo "$tk";?></u></a></li></u></li> <?php
                        }
                        ?>
 
@@ -490,19 +484,19 @@ if(isset($_GET["req"]))
                               <div class="box">
                                  <h4 class="title"><a href="./view/action.php?u=r&id=<?php echo $data['id'];?>" class="cls" id="<?php echo $data['id'];?>" ><span ><?php echo $data['title'];?></span></a></h4>
                                  <ul class="list-inline" style="padding-left: 40px; font-size: small;">
-                                    <li class="list-inline-item" value="<?php echo $data['main_author'];?>"><b><u><span><?php echo $data['main_author'];?></span></u></b></li>
+                                 <li class="list-inline-item"><a href="./view/author.php?u=r&author=<?php echo $data['main_author'];?>"><u><?php echo $data['main_author']?></u></a></li>
                                     
                                     <?php
                                     foreach (explode(",", $data['co_authors']) as $variable => $tk) {
                                     $variable>0;
                                     $variable++;
-                                    ?><li class="list-inline-item" value="<?php echo $tk;?>"><u><?php echo ",$tk";?></u></li> <?php
+                                    ?><li class="list-inline-item" id="coauth-<?php echo "$variable";?>"><a href="./view/author.php?author=<?php echo "$tk";?>"><u><?php echo "$tk";?></u></a></li><?php
                                     }
                                     ?>
 
                                     <li class="list-inline-item" value="<?php echo $data['date_publish'];?>"><b> * Published <span><?php echo $data['date_publish'];?></span></b></li>
                                     
-                                    <li class="list-inline-item" value="<?php echo $data['field_of_study'];?>" id="display-fstudy"><b> * <span><?php echo $data['field_of_study'];?></span></b></li>
+                                    <li class="list-inline-item" value="<?php echo $data['field_of_study'];?>" id="display-fstudy"><a href=""><b> * <u><span><?php echo $data['field_of_study'];?></span></b></u></a></li>
                                     
                                  </ul>
                                  <p class="description" value="<?php //echo $data['abstract'];?>"><span><?php echo $data['abstract'];?></span></p>
@@ -761,6 +755,7 @@ if(isset($_GET["req"]))
   <!-- <script src="./view/main.js"></script> -->
   <!-- <script src="../CustomLandingPage/view/filter.js"></script> -->
   <script src="./resource/js/main.js"></script>
+  <script src="./view/filter.js"></script>
   <script>
     $(document).ready(function () {
     <?php

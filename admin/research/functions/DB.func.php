@@ -58,6 +58,15 @@ function create_researchaction($connect,$title, $abstract, $main_author,$c_autho
 		return $sql;
 	}
 }
+function create_authoraction($connect,$name, $email,$profession,$created){
+	$sql = "INSERT INTO tblauthor VALUES ('','$name','$email','$profession','','','$created')";
+	$result = $connect->query($sql);
+	if ($result === true) {
+		return 1;
+	} else {
+		return $sql;
+	}
+}
 
 function update_researchaction($connect,$title, $abstract, $fstudy, $pdf_file,$tagging,$id){
 	$sql = "UPDATE tblresearch SET title='$title',abstract='$abstract', field_of_study='$fstudy',pdf_file='$pdf_file',tagging ='$tagging' WHERE id=$id";

@@ -250,7 +250,7 @@ if (!empty($_GET['id']))
 					</div>
 					<p class="font-weight-normal text-left" style="width:80%;"><?php echo ($data['abstract']); ?></p><br>
 				
-					<button type="button" class="btn btn-sm badge badge-info text-wrap" style="width: 5rem; padding:6px; float:left" data-toggle="modal" data-target="#research-citing" id="r-citing"><span>Cite</span></button>
+					<!-- <button type="button" class="btn btn-sm badge badge-info text-wrap" style="width: 5rem; padding:6px; float:left" data-toggle="modal" data-target="#research-citing" id="r-citing"><span>Cite</span></button> -->
 
 							<!-- Modal for Citing -->
 							<div class="modal fade" id="research-citing" tabindex="-1" role="dialog" aria-hidden="true">
@@ -307,9 +307,7 @@ if (!empty($_GET['id']))
 			{
 				if($data1['id'] != $_GET['id'])
 				{
-					
 				?>
-				
 					<div class="col-md-3 col-sm-5">
 					<div class="card">
 						<div class="card-body">

@@ -65,4 +65,25 @@ $(document).ready(function () {
    //    });
    //    e.preventDefault();   
    //  });
+    $('p').click(function () {
+      var $this = $(this);
+      // Current click count is previous click count +1
+      var clickCount = ($this.data("click-count") || 0) + 1;
+      // Save current click count
+       $this.data("click-count", clickCount);
+      if (clickCount %2 === 0) {
+         $(this).css({
+            'text-overflow': 'ellipsis', 
+            'overflow': 'hidden', 
+            'white-space': 'nowrap'
+         })
+       }
+       if (clickCount%2 === 1) {
+         $(this).css({
+            'text-overflow': 'ellipsis', 
+            'overflow': 'visible', 
+            'white-space': 'normal'
+         })
+       }
+   });
 });
