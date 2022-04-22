@@ -264,7 +264,10 @@
 <!-------------------- End of Filtering Section ---------------------------->
         </header><br>
         </div>
-
+      </div>
+      <div class="col">
+        <div class="row">
+      <div class="container">
         <div class="row" id="result-tbl">
 <!--=============================== Search Result Section ===============================-->
           <table id="table_id" class="display">
@@ -653,7 +656,16 @@ if(isset($_GET["req"]))
 <!--======================== End of Result Section ===========================-->
         </div>
 
-      </div><hr>
+      </div>
+      </div>
+        <div class="row">
+          <div class="container">
+            <div class="box">
+              <h2>Banner1</h2>
+            </div>
+          </div>
+        </div>
+    </div><hr>
     </section>
 
 <!--==========================

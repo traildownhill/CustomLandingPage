@@ -206,7 +206,7 @@ if (!empty($_GET['id']))
 	<!--View Research-->
 	<div class="container">
 		<div id="result">
-		<a href="/admin/research/research.php"><button class="btn btn-dark btn-sm"  style="float:left">Back</button></a>
+		<a href="../research.php"><button class="btn btn-dark btn-sm"  style="float:left">Back</button></a>
 		</div>	
 	</div><br><br>
 	<div class="container">
@@ -293,42 +293,49 @@ if (!empty($_GET['id']))
 		</div>
 	</div>
 	</div>
-	
-	<!-- Related Studies -->
 	<br<br><br>
 	<div class="container">
-		<h2>Related Studies</h2><br>
-		<!-- <div class="row"> -->
-		<div class="card-group">
-		<?php
-		$result1 = get_researchrelated($connect,$fstudy,$tags);
-		if ($result1->num_rows>0) {
-			while ($data1 = mysqli_fetch_array($result1))
-			{
-				if($data1['id'] != $_GET['id'])
-				{
-				?>
-					<div class="col-md-3 col-sm-5">
-					<div class="card">
-						<div class="card-body">
-							<!-- change function to the designated function ofyouassign management -->
-							<a href="action.php?id=<?php echo $data1['id'];?>"><p class="card-title"><?php echo $data1['title'];?></p></a>
-							<p class="card-text"><small class="text-muted"><?php ?></small></p>
-						</div>
-					</div>
-					</div>
-			<?php
-				}
-			}
-		}
-		?>
+	<div class="card">
+		<div class="card-body">
+		<div style="line-height: 20px;">
+		<h4><b>List All Who Cited</b></h4>
+		<!-- View Cited Popup -->
+       <table class="table table-hover">
+        <thead>
+          <tr>
+				<th scope="col" class="d-none">Default Sort Fixer</th>
+				<th scope="col">Name</th>
+				<th scope="col">Email</th>
+				<th scope="col">Date Cited</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+          $result1 = get_researchcited($connect, $_GET['id']);
+          if($result1->num_rows > 0){
+            while($data1 = mysqli_fetch_array($result1)){
+              ?>
+              <tr>
+                <td><?php echo $data1['cited_byN']?></td>
+                <td><?php echo $data1['cited_byE']?></td>
+                <td><?php echo $data1['cited_date']?></td>
+              </tr>
+              <?php
+            } }
+          ?>
+        </tbody>
+       </table>
 		</div>
 		</div>
+	</div>
+	</div>
+	
 	<!-- </div> -->
 	<br><br>	
 	
 <?php
 }
 ?>
+<script src="../../../resource/assets/datatables.min.js"></script>
 
 
