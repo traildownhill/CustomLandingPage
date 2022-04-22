@@ -113,12 +113,13 @@ if(isset($_FILES['files'])){
 ?>
 
 <!-- Create task button -->
-<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#adding-research">
-<i  class="fa fa-plus"></i>
-</button>
+<button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#adding-research"><i class="fa fa-plus"></i></button>
+
 <!-- change location of href -->
 <a href="./research.php"><button type="button" class="btn btn-outline-primary btn-sm">
-<i class="fa fa-refresh" aria-hidden="true"></i></button></a>
+  <i class="fa fa-refresh" aria-hidden="true"></i></button></a>
+<a href=""><button type="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-report" aria-hidden="true">Generate Report</i></button></a>
+  <!-- <br><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#adding-research"><i>Order by Field of Study</i></button> -->
 
 <style>
   .bootstrap-select > .dropdown-toggle.bs-placeholder, .bootstrap-select > .dropdown-toggle.bs-placeholder:hover, .bootstrap-select > .dropdown-toggle.bs-placeholder:focus, .bootstrap-select > .dropdown-toggle.bs-placeholder:active{
