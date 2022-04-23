@@ -42,15 +42,17 @@ if(isset($_POST['btnsubmit']))
                 'cost' => 12,];
                 $hash_pass = password_hash("$password", PASSWORD_BCRYPT, $options);
                 //insert to db
-                $query = "INSERT INTO tblaccount VALUES ('','$name', '$username','$hash_pass','$email', 'Active', 'User','No','','')";
+                $query = "INSERT INTO tblaccount VALUES ('','$name', '$username','$hash_pass','$email', 'Unsubscribe', 'User','No','','')";
                 if(mysqli_query($connect, $query))
                 {
-                    echo "<script>alert('New account $username has successfully added.' );</script>";
-                    // header("Location: ../index.php");
+                  $_SESSION['success_message'] = "Account Created successfully.";
+                    header("Location: ../signup/signup.php");
+                    exit();
+                    
                 }
                 else
                 {
-                    echo "<script>alert('Error in creating new account.');</script>";
+                  echo "Server problem, Try after sometime.";
                 }
             }
         }    
@@ -66,7 +68,21 @@ if(isset($_POST['btnsubmit']))
 <section id="intro" class="clearfix">
 <div class="container">
 <div class="row">
-	<div class="col-3"></div>
+	<div class="col-3">
+
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+  </symbol>
+  <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+  </symbol>
+  <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+  </symbol>
+</svg>
+
+  </div>
 	 <div class="col-6">
     <div class="card">
             <h5 class="card-header  text-center lead text-muted">Join us! Find your study here.</h5>
@@ -77,6 +93,22 @@ if(isset($_POST['btnsubmit']))
             <h3 class="card-title text-center">Signup</h3>
             <form action="" method="POST" onsubmit="return validateForm()" name="Form">
             <div class="form-group">
+
+            <?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
+                        
+          
+
+                  <div class="alert alert-success d-flex align-items-center" role="alert">
+                    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+                  <div>
+                  <?php echo $_SESSION['success_message']; ?>
+                  </div>
+                  </div>
+                        <?php
+                        unset($_SESSION['success_message']);
+                    }
+                    ?>
+                    
                   <input type="text" class="form-control" id="name" placeholder="Name" name="name">
                 </div>
                 <div class="form-group">
@@ -86,9 +118,17 @@ if(isset($_POST['btnsubmit']))
                 <input type="email" class="form-control" id="email" placeholder="Email" name="email">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                  <input type="password" class="form-control" id="myInput" placeholder="Password" name="password">
                 </div>
-               
+               <div class="form-group">
+               <input type="checkbox" onclick="myFunction2()">  Show Password
+                  </div>
+
+                  <div class="md-form">
+            <input type="checkbox" id="myCheck" name="accept" value="yes" required> 
+            "I agree to the Terms and Conditions" or "I agree to the Privacy Policy"
+            </div>
+
                 <button type="submit" class="btn btn-primary btn-block" name="btnsubmit">Register</button>
               <br>
               Are you already registered? <a href="../login/login.php">Login Now</a>
@@ -101,60 +141,21 @@ if(isset($_POST['btnsubmit']))
 </section>
 
   <br>
-  <!--==========================
-    Footer
-  ============================-->
-  <!-- <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6 footer-info">
-            <h3>AURESPOR</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
-          </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <b>Phone:</b> +1 5589 55488 55<br>
-              <b>Email:</b> info@example.com<br>
-            </p>
-
-            <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
-            </div>
-
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit"  value="Subscribe">
-            </form>
-          </div>
-
-        </div>
-      </div>
-      
-    </div>
-  </footer> -->
+  <script type="text/javascript">
+    function myFunction2() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+    </script>
+    
+    <script>
+function myFunction1() {
+  var x = document.getElementById("myCheck").required;
+  document.getElementById("demo").innerHTML = x;
+}
+</script>
+ 

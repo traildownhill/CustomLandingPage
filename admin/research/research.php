@@ -100,9 +100,10 @@ if(isset($_FILES['files'])){
     {
       $tagging= implode(', ',$_POST['tags']);
     }
-      $result = create_researchaction($connect,$_POST['title'],$_POST['abstract'],$_POST['txtmain-author'],$c_author,$_POST['dpub'],$_POST['fstudy'],$Pdf_file,$tagging);
+      $result = create_researchaction($connect,$_POST['title'],$_POST['abstract'],$_POST['txtmain-author'],$c_author,$_POST['dpub'],$_POST['rstatus'],$_POST['fstudy'],$Pdf_file,$tagging);
         if ($result == 1) {
           message("Research created successfully!",1);
+          
         } else {
           message("Could not create Research!",0);
         }
@@ -237,6 +238,17 @@ if(isset($_FILES['files'])){
           </div>
         </div>
 
+        <div class="col">
+          <div class="form-group">
+            <label class="label">Research Status*</label><br>
+            <select class="custom-select" id="rstatus" name="rstatus" required="required">
+            <option hidden>Select... </option>
+              <option>Published</option>
+              <option> Unpublished</option>
+            </select>
+          </div>
+        </div>
+      
         <!-- FIELD OF STUDY -->
         <div class="col">
           <div class="form-group">
@@ -357,6 +369,7 @@ if(isset($_FILES['files'])){
        <th scope="col">Main Author</th>
        <th scope="col">Co-Author(s)</th>
        <th scope="col">Date Published</th>
+       <th scope="col">Research Status</th>
        <th scope="col">Field of Study</th>
        <th scope="col"></th>
        <th scope="col" align="center">Action</th>
@@ -377,6 +390,7 @@ if(isset($_FILES['files'])){
          <td><?php echo $data['main_author']?></td>
          <td><?php echo $data['co_authors']?></td>
          <td><?php echo $data['date_publish']?></td>
+         <td><?php echo $data['r_status']?></td>  
          <td><?php echo $data['field_of_study']?></td>
          <td><?php
         //  $user = get_user_data($connect,$_SESSION['id']);
@@ -403,7 +417,7 @@ if(isset($_FILES['files'])){
    <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="deleteLabel">Delete Journal</h5>
+         <h5 class="modal-title" id="deleteLabel">Delete Research Paper</h5>
          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>

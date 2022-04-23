@@ -34,11 +34,12 @@ if(isset($_POST["btnsubmit"]))
     $main_author = $_POST['main-author'];
     $abstract = $_POST['abstract'];
     $datepub = $_POST['dpub'];
+    $rstatus = $_POST['rstatus'];
     $fstudy = $_POST['fstudy'];
     $fstudy = $_FILES['files'];
 	
  $connect = new PDO("mysql:host=localhost;dbname=research_portal", "root", "");
- $query = "INSERT INTO tblresearch VALUES('','$title','$main_author','','$abstract','$datepub','$fstudy,'$pdf_file','','' :tags)";
+ $query = "INSERT INTO tblresearch VALUES('','$title','$main_author','','$abstract','$datepub','$rstatus','$fstudy,'$pdf_file','','' :tags)";
  $statement = $connect->prepare($query);
  $statement->execute(
   array(
