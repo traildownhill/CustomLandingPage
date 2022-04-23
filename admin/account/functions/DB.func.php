@@ -184,13 +184,19 @@ function get_accountaction($connect,$id){
 
 function get_subscribe($connect){
 	//ORDER BY deadline ASC
-	$sql = "SELECT * FROM tblaccount WHERE subcribe='YES'";
+	$sql = "SELECT * FROM tblaccount WHERE ucategory='User' AND subcribe='YES'";
 	$result = $connect->query($sql);
 		return $result;
 }
 function get_unsubscribe($connect){
 	//ORDER BY deadline ASC
-	$sql = "SELECT * FROM tblaccount WHERE subcribe='No'";
+	$sql = "SELECT * FROM tblaccount WHERE ucategory='User' AND subcribe='No'";
+	$result = $connect->query($sql);
+		return $result;
+}
+function get_alluser($connect){
+	//ORDER BY deadline ASC
+	$sql = "SELECT * FROM tblaccount WHERE ucategory='User'";
 	$result = $connect->query($sql);
 		return $result;
 }

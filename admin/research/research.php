@@ -119,7 +119,8 @@ if(isset($_FILES['files'])){
 <!-- change location of href -->
 <a href="./research.php"><button type="button" class="btn btn-outline-primary btn-sm">
   <i class="fa fa-refresh" aria-hidden="true"></i></button></a>
-<a href=""><button type="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-report" aria-hidden="true">Generate Report</i></button></a>
+
+  <a href="./report/mostcited_report.php"><button type="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-report" aria-hidden="true">Generate Report</i></button></a>
   <!-- <br><button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#adding-research"><i>Order by Field of Study</i></button> -->
 
 <style>

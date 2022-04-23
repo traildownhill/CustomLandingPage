@@ -25,6 +25,19 @@ function get_research($connect){
 	$result = $connect->query($sql);
 		return $result;
 }
+
+function get_mostcited($connect){
+	//ORDER BY deadline ASC
+	$sql = "SELECT * FROM tblresearch LIMIT 10 DESC";
+	$result = $connect->query($sql);
+		return $result;
+}
+function get_mostview($connect){
+	//ORDER BY deadline ASC
+	$sql = "SELECT * FROM tblresearch LIMIT 10 DESC";
+	$result = $connect->query($sql);
+		return $result;
+}
 function get_researchcited($connect, $paper_id){
 	//ORDER BY deadline ASC
 	$sql = "SELECT * FROM tblcited WHERE paper_id ='$paper_id' ORDER BY cited_date";

@@ -150,7 +150,7 @@ header("Location: ../../../login/login.php");
   <main id="main">
   <body>
    <?php 
-       $query = "SELECT subcribe, count(*) as number FROM tblaccount GROUP BY subcribe";  
+       $query = "SELECT subcribe, count(*) as number FROM tblaccount WHERE ucategory='User' GROUP BY subcribe";  
        $result = mysqli_query($connect, $query);
    ?>
      <div class="container" style="background-color: pink;">
@@ -201,7 +201,7 @@ header("Location: ../../../login/login.php");
       <div style="display: inline-table; float:right">
       <div class="card">
           <h5 style="margin-top:10px; margin-left:10px; margin-right:10px;"><center>Number of Subscribe/Unsubscribe Accounts</center></h5>
-          <h5><center>Total No. of Account: <b><u><?php echo get_accounts($connect)->num_rows; ?></u></b></center></h5>
+          <h5><center>Total No. of Account: <b><u><?php echo get_alluser($connect)->num_rows; ?></u></b></center></h5>
           <ul>
              <li>Number of Subscribe Account: <b><u><?php echo get_subscribe($connect)->num_rows; ?></u></b></li>
              <li>Number of Unsubscribe Account: <b><u><?php echo get_unsubscribe($connect)->num_rows; ?></b></u></li>
