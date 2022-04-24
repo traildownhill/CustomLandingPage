@@ -11,7 +11,7 @@ $(document).ready(function (e) {
       var id_r = $(this).attr('id');
       var view = $("#rView" + id_r).val();
       if(isNaN(view)) {
-         var view = 0;
+         var view = 00;
       }
       view = parseInt(view);
       view_r = view + 1;
@@ -32,7 +32,7 @@ $(document).ready(function (e) {
       var id_j = $(this).attr('id');
       var view = $("#jView" + id).val();
       if(isNaN(view)) {
-         var view = 0;
+         var view = 00;
       }
       view = parseInt(view);
       view_j = view + 1;
@@ -109,7 +109,7 @@ $(document).ready(function (e) {
             var id_r = $('h5.cls').attr('id');
             var cite = $("#Cite" + id_r).val();
                   if(isNaN(cite)) {
-                     var cite = 0;
+                     var cite = 00;
                   } 
                   cite = parseInt(cite);
                   cite_r = cite + 1;
