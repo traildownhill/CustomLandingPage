@@ -658,14 +658,54 @@ if(isset($_GET["req"]))
 
       </div>
       </div>
+
         <div class="row">
           <div class="container">
-            <div class="box">
-              <h2>Banner1</h2>
-            </div>
+                    
+
+          <div class="card wow bounceInUp" data-wow-duration="0.3s">
+          <div class="card-header">
+            Featured
+          </div>
+          <?php
+            $query = "SELECT * FROM tblresearch ORDER BY cites DESC Limit 1";  
+            $result = mysqli_query($connect, $query);
+            $cite = 0;
+            $view =0;
+            while($row = mysqli_fetch_assoc($result))
+            {
+              ?>
+                <div class="card-body">
+                  <h5 class="card-title">Most Cited Research</h5>
+                  <p class="card-text"><?php echo $row['title']?></p> 
+                </div>
+          <hr>
+          <?php
+            }
+          ?>
+            <?php
+             $query2 = "SELECT * FROM tblresearch ORDER BY views DESC LIMIT 1";
+            $result2 = mysqli_query($connect, $query2);
+            $view =0;
+            while($row = mysqli_fetch_assoc($result2))
+            {
+              ?>
+                <div class="card-body">
+                  <h5 class="card-title">Most Viewed Research</h5>
+                  <p class="card-text"><?php echo $row['title']?></p>
+                </div>
+          </div>
+          <?php
+            }
+            
+          ?>
+
+
+
           </div>
         </div>
-    </div><hr>
+        
+    </div>
     </section>
 
 <!--==========================
@@ -673,13 +713,6 @@ if(isset($_GET["req"]))
   ============================-->
 
   </main>
-<?php
-  // if(isset($_GET['filter-submit']))
-  // {
-
-  // }
-?>
-
   
   <!--==========================
     Footer
@@ -742,7 +775,7 @@ if(isset($_GET["req"]))
 
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
+  <div id="preloader"></div>
   <!-- Tables CDN -->
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 

@@ -224,10 +224,23 @@
           
 
           <main id="main">
-
-            <!--==========================
-              Result Section
-            ============================-->
+<?php
+          if (isset($_SESSION['id'])) 
+  { 
+  if ($_SESSION['role'] == "Administrator") 
+          { 
+              
+          }
+          else
+          {
+            ?>
+            <br><br><br>
+            <img src="../resource/img/userquickguide.png" alt="Paris" class="center">
+            <br><br><br>
+          <?php
+          }
+        }
+          ?>
            
 
           </main>

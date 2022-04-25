@@ -31,6 +31,15 @@
   <link href="./resource/css/style_mainpage.css" rel="stylesheet">
   <link href="./resource/css/addons.css" rel="stylesheet">
 
+  <style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 43%;
+}
+  </style>
+
 </head>
 <!-- Try lng mag push -->
 <body>
@@ -161,30 +170,28 @@ include "./admin/research/functions/Message.func.php";
     </div>
   </section>
   
-  <!-- #intro -->
-
-  
-  <!--==========================
-    Footer
-  ============================-->
-  <!-- <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        
-          <div class="col">
-            <h3>AURESPOR</h3>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
-          </div>
-
-      </div>
-    </div>
-
-  </footer> -->
-  <!-- #footer -->
-
+  <main>
+  <?php
+          if (isset($_SESSION['id'])) 
+  { 
+  if ($_SESSION['role'] == "") 
+          { 
+              
+          }
+          else
+          {
+            ?>
+            <br><br><br>
+            <img src="./resource/img/userquickguide.png" alt="Paris" class="center">
+            <br><br><br>
+          <?php
+          }
+        }
+          ?>
+  </main>
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
+  <div id="preloader"></div>
   <!-- Tables CDN -->
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 

@@ -124,7 +124,8 @@ include "../admin/research/functions/functions.php";
           } 
           else 
           { 
-            header("Location: ../../login/login.php");
+            header("Location: ../../CustomLandingPage-1/login/login.php");
+            
           }?>
         </ul>
       </nav><!-- .main-nav -->
@@ -158,6 +159,7 @@ if (!empty($_GET['author']))
 						margin:0;
 					}
 				</style>
+        
 				<div class="badge badge-info text-wrap" style="width: 8rem; padding:5px;" >
 				<!-- change to.. -->
 				<span >Author's Papers</span>
