@@ -197,7 +197,7 @@ if (!empty($_GET['author']))
 	<!-- #footer -->
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
+  <div id="preloader"></div>
   <!-- Tables CDN -->
 
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>

@@ -52,7 +52,7 @@ include "../admin/research/functions/functions.php";
   <header id="header" class="fixed-top">
     <div class="container">
       <div class="logo float-left">
-       <a href="/CustomLandingPage/index.php" class="scrollto"><img src="../resource/img/logo.png" alt="" class="img-fluid" >&nbsp;<strong>AURESPOR</strong></a>
+       <a href="/CustomLandingPage/index.php" class="scrollto"><img src="../resource/img/logo.png" alt="" class="img-fluid" >&nbsp;<strong>AU RESEARCH PORTAL</strong></a>
       </div>
       
       <nav class="main-nav float-right d-none d-lg-block" >
@@ -148,6 +148,8 @@ if (!empty($_GET['id']))
 		$fstudy = $data['field_of_study'];
 		$tags = $data['tagging'];
 		$id= $_GET['id']
+	
+
 		?>
 			<br><br><br><br>
 			<!--View Research-->
@@ -204,9 +206,7 @@ if (!empty($_GET['id']))
 								}
 							}
 								?>
-								<!--  -->
-								
-								<!--  -->
+							
 								<div>
 									<h5 class="cls" id="<?php echo "$id";?>"></h5>
 									<h5 id="cited_byR" value="<?php 
@@ -236,12 +236,16 @@ if (!empty($_GET['id']))
                      	<li class="list-inline-item" id="Cite<?php echo $data['id'];?>" value="<?php echo $data['cites'];?>"><b>Cite: <?php echo $data['cites'];?></b></li>
                               </ul>
 							<?php
-							if(!empty($_SESSION['id'])){
+							if(!empty($_SESSION['id']))
+							{
 								if($_SESSION['status'] == "Active")
 							{
 								?>
+								
 									<button type="button" class="btn btn-md badge badge-info text-wrap" style="width: 5rem; padding:6px; float:left" data-toggle="modal" data-target="#research-citing" id="r-citing"><span>Cite</span></button>
 								<?php
+									
+
 							}
 							}
 							?>
@@ -810,7 +814,7 @@ if (!empty($_GET['id']))
 <!-- #footer -->
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
-  <!-- <div id="preloader"></div> -->
+  <div id="preloader"></div>
   <!-- Tables CDN -->
 
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>

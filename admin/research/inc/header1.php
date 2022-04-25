@@ -14,7 +14,7 @@ include "../functions/functions.php";
   <meta content="" name="keywords">
   <meta content="" name="description">
   <!-- Favicons -->
-  <link href="../../../resource/img/favicon.png" rel="icon">
+  <link href="../../../resource/img/logo.png" rel="icon">
   <link href="../../../resource/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->

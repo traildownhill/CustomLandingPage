@@ -9,12 +9,12 @@ include "../login/functions/functions.php";
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Arellano University</title>
+  <title>Arellano University | Login</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
   <!-- Favicons -->
-  <link href="../resource/img/favicon.png" rel="icon">
+  <link href="../resource/img/logo.png" rel="icon">
   <link href="../resource/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -61,7 +61,7 @@ include "../login/functions/functions.php";
   <header id="header" class="fixed-top">
     <div class="container">
       <div class="logo float-left">
-       <a href="../index.php" class="scrollto"><img src="../resource/img/logo.png" alt="" class="img-fluid" >&nbsp;<strong>AURESPOR</strong></a>
+       <a href="../index.php" class="scrollto"><img src="../resource/img/logo.png" alt="" class="img-fluid" >&nbsp;<strong>AU RESEARCH PORTAL</strong></a>
       </div>
       <!-- .main-nav -->
     </div>

@@ -108,7 +108,7 @@ if(isset($_POST['but_submit']))
 
             <div class="md-form">
             <input type="checkbox" id="myCheck" name="accept" value="yes" required> 
-            "I agree to the Terms and Conditions" or "I agree to the Privacy Policy"
+            "I agree to the Terms and Conditions" or "I agree to the <a href="../privacy/datapolicy.php">Privacy Policy </a>"
             </div>
 
           <div class="text-center mb-3">
@@ -131,6 +131,8 @@ if(isset($_POST['but_submit']))
 </div>
 
 </section>
+
+<div id="preloader"></div>
 
  <!--==========================
     Footer

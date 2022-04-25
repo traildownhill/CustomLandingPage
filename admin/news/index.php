@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Arellano University</title>
+  <title>Arellano University | News</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="../img/logo.png" rel="icon">
+  <link href="../../resource/img/logo.png" rel="icon">
   <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -51,7 +51,7 @@ if ($result = mysqli_query($mysqli, $sql)) {
 <header id="header" class="fixed-top">
     <div class="container">
       <div class="logo float-left">
-       <a href="/CustomLandingPage/admin/index.php" class="scrollto"><img src="../../resource/img/logo.png" alt="" class="img-fluid" >&nbsp;<strong>AURESPOR</strong></a>
+       <a href="/CustomLandingPage/admin/index.php" class="scrollto"><img src="../../resource/img/logo.png" alt="" class="img-fluid" >&nbsp;<strong>AU RESEARCH PORTAL</strong></a>
       </div>
       
       <nav class="main-nav float-right d-none d-lg-block " >

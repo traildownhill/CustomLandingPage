@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Arellano University</title>
+  <title>Arellano University | Research Portal</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -191,7 +191,7 @@ include "./admin/research/functions/Message.func.php";
   </main>
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
-  <div id="preloader"></div>
+  <div id="preloader"></div>  
   <!-- Tables CDN -->
   <script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
 
