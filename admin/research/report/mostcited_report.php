@@ -153,7 +153,7 @@ header("Location: ../../../login/login.php");
        $query = "SELECT * FROM tblresearch ORDER BY cites DESC Limit 3";  
        $result = mysqli_query($connect, $query);
    ?>
-     <div class="container" style="background-color: pink;">
+     <di class="container">
       <!-- Left Side -->
       <div style="display: inline-table; float:left">
           
@@ -190,7 +190,7 @@ header("Location: ../../../login/login.php");
       </div>
 
       <!-- Right Side -->
-      <div style="display: inline-table; float:right">
+      <div style="display: inline-table; float:right; padding-right:7%;">
       <div class="card">
           <h5 style="margin-top:10px; margin-left:10px; margin-right:10px;"><center>3 Most Cited</center></h5>
           <?php
@@ -233,9 +233,9 @@ header("Location: ../../../login/login.php");
           </tbody>
           </table>
           </ul>
-      </div>
+      </div><br><br> 
       </div>
 
-</div>
+</di>
 </section>
 </main>
