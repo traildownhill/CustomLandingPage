@@ -238,7 +238,7 @@ if (!empty($_GET['id']))
 							<?php
 							if(!empty($_SESSION['id']))
 							{
-								if($_SESSION['status'] == "Active")
+								if($_SESSION['subscribe'] == "Yes")
 							{
 								?>
 								
