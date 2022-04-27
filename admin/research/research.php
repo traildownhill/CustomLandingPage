@@ -120,10 +120,10 @@ if(isset($_FILES['files'])){
 <a href="./research.php"><button type="button" class="btn btn-outline-primary btn-sm">
   <i class="fa fa-refresh" aria-hidden="true"></i></button></a>
 
-  <a href="./report/mostcited_report.php"><button type="button" class="btn btn-outline-primary btn-sm">
-  <i aria-hidden="true">View Most Cite Report</i></button></a>
-  <a href="./report/mostview_report.php"><button type="button" class="btn btn-outline-primary btn-sm">
-  <i aria-hidden="true">View Most View Report</i></button></a>
+  <a href="./report/mostcited_report.php"><button type="button" class="btn btn-outline-primary btn-sm" style="float: right;">
+  <i aria-hidden="true">Report for Cite</i></button></a>
+  <a href="./report/mostview_report.php"><button type="button" class="btn btn-outline-primary btn-sm" style="float: right;">
+  <i aria-hidden="true">Report for Views</i></button></a>
 
 
 

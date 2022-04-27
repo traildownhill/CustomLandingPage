@@ -111,8 +111,8 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
   <a href="./account.php"><button type="button" class="btn btn-outline-primary btn-sm">
   <i class="fa fa-refresh" aria-hidden="true"></i>
   </button>
-  </a><br>
-  <a href="../account/report/subscribe_report.php"><button type="button" class="btn btn-outline-primary btn-sm"><i class="fa fa-report" aria-hidden="true">Generate Report</i></button></a>
+  </a>
+  <a href="../account/report/subscribe_report.php"><button type="button" class="btn btn-outline-primary btn-sm" style="float: right;"><i class="fa fa-report"  aria-hidden="true">Report for Accounts</i></button></a>
 
 
 <br/>
