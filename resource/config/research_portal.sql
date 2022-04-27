@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2022 at 08:08 AM
+-- Generation Time: Apr 27, 2022 at 05:11 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -45,9 +45,10 @@ CREATE TABLE `tblaccount` (
 --
 
 INSERT INTO `tblaccount` (`id`, `name`, `username`, `pass`, `email`, `status`, `ucategory`, `subcribe`, `datesub_start`, `datesub_end`) VALUES
-(16, 'Admin', 'admin', '$2y$12$rBhHUN7rJbgbIgBFKHcr9O/D9ymes5sACQs7rvTROCOUEcr55g.nq', '', 'Active', 'Administrator', 'Yes', '', ''),
-(17, 'User', 'user', '$2y$12$ZTjDKMwr6w6.YkGVsIa1n.5ZfFAKGcCGoV4rpxLiliEk4WsyhrKDm', '', 'Active', 'User', 'No', '', ''),
-(29, 'user1', 'user1', '$2y$12$fdW0dvA5/jHzKBzria53Eex1n0d2XZzL25daWs5KGGpmcJXt7yG1W', 'user1@gmail.com', 'Inactive', 'User', 'Yes', '', '');
+(1, 'Administrator', 'admin', '$2y$12$fTpGJB44Zzj1PVr67WV0gegUsuvnMgbE.x8wgkpqBGDfCCITDmBIG', 'admin@gmail.com', 'Active', 'Administrator', 'Yes', '', ''),
+(2, 'User', 'user', '$2y$12$D36eR9bYAr0uTIhV4OsLfe/1/Iu6iAS48wykkSAVvzKQ4tb.oiEJ6', 'user@gmail.com', 'Inactive', 'User', 'Yes', '', ''),
+(3, 'external1', 'external1', '$2y$12$WZO.0ecsvfHNiMK/LA129ucgx5x8PjqVgooJZFtwqyTRTDIMYHPQG', 'xternal1@gmail.com', 'Active', 'User', 'Yes', '', ''),
+(4, 'D. Saraswathi', 'aujsc.com.heruela.j', '$2y$12$g81Msr2N9xMIUVw6yldIMu/NAtkeblMRCn/R8uQgFvRKzKAXrSZym', 'jarenloydheruela@gmail.com', 'Active', 'User', 'No', '', '');
 
 -- --------------------------------------------------------
 
@@ -74,8 +75,7 @@ CREATE TABLE `tblarticle` (
 --
 
 INSERT INTO `tblarticle` (`id`, `a_title`, `a_description`, `a_author`, `a_datepub`, `a_creator`, `a_created`, `a_tagging`, `a_pdf_file`, `a_cites`, `a_views`) VALUES
-(2, 'sample1', 'sampl2sampl2sampl2', 'D. Saraswathi', '2022-03-29', '16', 'Apr-14-22', '#learning,#edleadership', 'uploads/20', '', ''),
-(3, 'sample12', 'wertyui', 'trylang', '2022-03-17', '16', 'Apr-14-22', '#learning,#edleadership', 'uploads/20', '', '');
+(1, 'The Implementation of Outcome-Based Education in a State University', 'Higher educational institutions are encouraged to implement the Outcome-Based Education to prepare instructors to be competitive and produce graduates who are ready to meet the global job needs. To determine the level of implementation of the Outcome-Based Education (OBE) in Central Philippines State University, the researcher employed the sequential explanatory mixed-method design which involves two phases: the quantitative followed by qualitative. The quantitative data were collected through a validated survey instrument, while the qualitative data were gathered from the participants through an in-depth semi-structured interview which culled out their experiences on the implementation of the Outcome-Based Education. The findings of the study revealed that Outcome-Based Education standards were moderately implemented in the university. This means that the learning experiences of students and the teaching methodology could hardly develop their skills to attain the intended learning outcomes. Qualitatively, the results yielded different themes that brought forth an eidetic insight that the OBE implementation is collaborative and value-laden effort: bridging theory and practice of the academic community. The research findings were used as a basis for designing the proposed CPSU-Operational Plan using the Approach, Deployment, Learning, Integration (ADLI) model that can be adopted and implemented by the University.\r\n', 'MERFE D. CAYOT', '2018-12-19', '1', 'Apr-15-22', '#learning,#literacy,#edreform', 'uploads/Th', '0', '0');
 
 -- --------------------------------------------------------
 
@@ -98,9 +98,15 @@ CREATE TABLE `tblauthor` (
 --
 
 INSERT INTO `tblauthor` (`id`, `name`, `email`, `profession`, `description`, `fstudy`, `created`) VALUES
-(1, 'D. Saraswathi', 'D. Saraswathi@gmail.com', 'Professor', 'rtyureghj', 'Geography, Geology, History, Law', '16'),
-(2, 'trylang', 'trylang', 'Analyst', 'ghjktrefgnhmj', 'Business, Computer Science, Economics, Education', '16'),
-(3, 'William smith', 'smith@gmail.com', 'professor', 'qwertyui', 'Computer Science', '16');
+(1, 'Stephen McKenzie', 'stephen@gmail.com', 'Professor', 'qwertyuio', 'Computer Science', '1'),
+(2, 'Filia Garivaldis', 'fillia@gmail.com', 'Professor', 'qwertyui', 'Computer Science, Education', '1'),
+(3, 'Angelos Kaissidis', 'agelos@gmail.com', 'Professor', 'qwertyui', 'Computer Science, Education', '1'),
+(4, 'Matt Mundy', 'matt@gmail.com', 'Professor', 'qw67', 'Computer Science, Education, Engineering', '1'),
+(5, 'MERFE D. CAYOT', 'merfe@gmail.com', 'Professor', 'sdfghjkl', 'Education', '1'),
+(6, 'Daner Chen ', 'daner@gmail.com', 'Researcher', 'qwertyui', 'Computer Science', '1'),
+(18, 'Jaren Heruela', 'jarenloydheruela@gmail.com', 'Researcher', '', '', '1'),
+(19, 'Jaren Heruela', 'jarenloydheruela@gmail.com', 'Researcher', '', '', '1'),
+(20, 'jaren  jaren', 'jarenloydheruela@gmail.com', 'Analyst', '', '', '1');
 
 -- --------------------------------------------------------
 
@@ -139,9 +145,10 @@ CREATE TABLE `tblcited` (
 --
 
 INSERT INTO `tblcited` (`id`, `table_type`, `paper_id`, `paper_title`, `cited_byN`, `cited_byE`, `cited_date`, `cited_byId`) VALUES
-(1, 'Research', '1', '', 'Admin', '', 'April 13, 2022, 5:09 am', '16'),
-(2, 'Research', '1', '', 'Admin', '', 'April 13, 2022, 7:01 am', '16'),
-(3, 'Research', '1', '', 'Admin', '', 'April 13, 2022, 9:14 am', '16');
+(1, 'Research', '1', '', 'User', 'user@gmail.com', 'April 15, 2022, 4:11 am', '2'),
+(2, 'Research', '1', '', 'User', 'user@gmail.com', 'April 15, 2022, 4:14 am', '2'),
+(3, 'Research', '1', '', 'external1', 'xternal1@gmail.com', 'April 17, 2022, 8:33 am', '3'),
+(4, 'Research', '1', '', 'Administrator', 'admin@gmail.com', 'April 24, 2022, 6:21 am', '1');
 
 -- --------------------------------------------------------
 
@@ -162,7 +169,7 @@ CREATE TABLE `tblevents` (
 --
 
 INSERT INTO `tblevents` (`id`, `event_name`, `event_description`, `date`, `time`) VALUES
-(1, 'sample1', ' sample1sample1sample1sample1sample1', '2022-04-07', '16:00');
+(1, 'Final Defense', ' Final Defense for college graduating students', '2022-04-17', '10:00');
 
 -- --------------------------------------------------------
 
@@ -191,9 +198,8 @@ CREATE TABLE `tbljournal` (
 --
 
 INSERT INTO `tbljournal` (`id`, `title`, `description`, `author`, `datepub`, `creator`, `created`, `status`, `pdf_file`, `tagging`, `fstudy`, `cites`, `views`) VALUES
-(1, 'sample1', 'The application of string similarity is very \r\nextensive, and the algorithm based on Levenshtein Distance is \r\nparticularly classic, but it is still insufficient in the aspect of \r\nuniversal applicability and accuracy of results. Combined with \r\nthe Longest Common Subsequence (LCS) and Longest Common \r\nSubstring (LCCS), similarity algorithm based on Levenshtein \r\nDistance is improved, and the string similarity result of the \r\nimproved algorithm is more distinct, reasonable and accurate, \r\nand also has a better universal applicability. What ′ s more in the \r\nprocess of similarity calculation, the Solving algorithm of the LD \r\nand LCS has been optimized in the data structure, reduce the \r\nspace complexity of the algorithm from the order of magnitude. \r\nAnd the experimental results are analyzed in detail, which proves \r\nthe feasibility and correctness of the results. ', 'trylang', '2022-04-06', '16', '2022-04-13', '', 'uploads/Cluster Algorithm for Search Engine Collator.pdf', '#mathchat, #edreform', 'Computer Science, En', '', ''),
-(2, 'sampl2', 'sampl2', 'William smith', '2022-04-06', '16', '2022-04-14', '', 'uploads/Code-Quality-Evaluation-methodology-using-the-ISOIEC-9126-Standard.pdf', '#edreform', 'Engineering', '', ''),
-(3, 'sample3', 'sampl2sampl2sampl2sampl2sampl2', 'D. Saraswathi', '2022-04-25', '16', '2022-04-14', '', 'uploads/Content Management System (CMS) _ SpringerLink.pdf', '#learning, #scichat', 'Economics', '', '');
+(1, 'The Implementation of Outcome-Based Education in a State University', 'Higher educational institutions are encouraged to implement the Outcome-Based Education to prepare instructors to be competitive and produce graduates who are ready to meet the global job needs. To determine the level of implementation of the Outcome-Based Education (OBE) in Central Philippines State University, the researcher employed the sequential explanatory mixed-method design which involves two phases: the quantitative followed by qualitative. The quantitative data were collected through a validated survey instrument, while the qualitative data were gathered from the participants through an in-depth semi-structured interview which culled out their experiences on the implementation of the Outcome-Based Education. The findings of the study revealed that Outcome-Based Education standards were moderately implemented in the university. This means that the learning experiences of students and the teaching methodology could hardly develop their skills to attain the intended learning outcomes. Qualitatively, the results yielded different themes that brought forth an eidetic insight that the OBE implementation is collaborative and value-laden effort: bridging theory and practice of the academic community. The research findings were used as a basis for designing the proposed CPSU-Operational Plan using the Approach, Deployment, Learning, Integration (ADLI) model that can be adopted and implemented by the University.\r\n', 'MERFE D. CAYOT', '2018-12-19', '1', '2022-04-15', '', 'uploads/The Implementation of Outcome-Based Education in a State University.pdf', '#learning, #literacy', 'Education', '1', '5'),
+(2, 'sample 1', 'sample 1sample 1sample 1sample 1sample 1sample 1', 'Stephen McKenzie', '2022-04-12', '1', '2022-04-17', '', 'uploads/Afully ol rs for research student and researchers.pdf', '#mathchat, #edreform', 'Engineering, Geology', '', '');
 
 -- --------------------------------------------------------
 
@@ -231,7 +237,7 @@ CREATE TABLE `tblnews` (
 --
 
 INSERT INTO `tblnews` (`id`, `name`, `mobile`, `email`, `author`, `tags`, `cites`, `views`) VALUES
-(1, 'sample1', ' hdhcgvjbkntxtcfgvhjb', '2022-04-06', 'rtyuiutyuio', '', '', '');
+(1, 'Nine Dead, Hundreds Fall Ill With Diarrhoea In Typhoon-Hit Philippines', ' Nine people have died and hundreds have fallen ill with diarrhoea in areas of the Philippines wrecked by a typhoon last month, with aid officials warning of a health crisis as millions struggle to secure clean water and food.\r\n', '2022-01-22', 'World News', '#news, #typhoon', '', '0');
 
 -- --------------------------------------------------------
 
@@ -246,6 +252,7 @@ CREATE TABLE `tblresearch` (
   `main_author` varchar(100) NOT NULL,
   `co_authors` varchar(100) NOT NULL,
   `date_publish` varchar(20) NOT NULL,
+  `r_status` varchar(120) NOT NULL,
   `field_of_study` varchar(100) NOT NULL,
   `pdf_file` varchar(100) NOT NULL,
   `tagging` varchar(100) NOT NULL,
@@ -257,10 +264,11 @@ CREATE TABLE `tblresearch` (
 -- Dumping data for table `tblresearch`
 --
 
-INSERT INTO `tblresearch` (`id`, `title`, `abstract`, `main_author`, `co_authors`, `date_publish`, `field_of_study`, `pdf_file`, `tagging`, `cites`, `views`) VALUES
-(1, 'A Kind of Algorithm For Page Ranking \r\nBased on Classified Tree In Search Engine', 'Algorithm of page ranking is the core of search \r\nengine. This paper proposes a new type of algorithm of page \r\nranking by combining classified tree with static algorithm of \r\npage ranking-PageRank, which enables the classified tree to be \r\nconstructed according to a large number of users’ similar \r\nsearching results, and can obviously reduce the problem of \r\nTheme-Drift, caused by using PageRank only, and problem of \r\noutdated web pages. It improves the searching efficiency \r\nwithout reducing the searching speed, which provides the users \r\nwith the abundant expanded information relevant to searching \r\ncontent.', 'trylang', 'D. Saraswathi', '2021-02-12', 'Business and Economics', 'uploads/A Fast Tree-Based Search Algorithm for Cluster Search Engine.pdf', '#edchat, #K12, #learning, #edleadership', '3', '3'),
-(2, 'A FULLY ONLINE RESEARCH PORTAL FOR RESEARCH \r\nSTUDENTS AND RESEARCHERS', 'This paper describes the context, development, implementation, and the potential transferability of an integrated online research environment that allows its \r\nusers to conduct all aspects of research online.\r\nBackground While the content of most traditional courses can be delivered online and learning outcomes can be achieved by adopting equivalents to face-to-face pedagogic \r\napproaches, certain courses, such as those that require a substantial research \r\ncomponent, present significant constraints for delivery online. To overcome \r\nthese limitations, Australia’s largest university developed and implemented a \r\nResearch Portal', 'D. Saraswathi', 'trylang', '2022-04-01', 'Computer Studies', 'uploads/Afully ol rs for research student and researchers.pdf', '#scichat, #mathchat, #edreform', '0', '4'),
-(3, 'Research on String Similarity Algorithm based on \r\nLevenshtein Distance', 'The application of string similarity is very \r\nextensive, and the algorithm based on Levenshtein Distance is \r\nparticularly classic, but it is still insufficient in the aspect of \r\nuniversal applicability and accuracy of results. Combined with \r\nthe Longest Common Subsequence (LCS) and Longest Common \r\nSubstring (LCCS), similarity algorithm based on Levenshtein \r\nDistance is improved, and the string similarity result of the \r\nimproved algorithm is more distinct, reasonable and accurate, \r\nand also has a better universal applicability. What ′ s more in the \r\nprocess of similarity calculation, the Solving algorithm of the LD \r\nand LCS has been optimized in the data structure, reduce the \r\nspace complexity of the algorithm from the order of magnitude. \r\nAnd the experimental results are analyzed in detail, which proves \r\nthe feasibility and correctness of the results. ', 'D. Saraswathi', 'trylang', '2022-04-06', 'Computer Science', 'uploads/Paper Title (use style_ paper title).pdf', '#scichat, #mathchat, #edreform', '5', '1');
+INSERT INTO `tblresearch` (`id`, `title`, `abstract`, `main_author`, `co_authors`, `date_publish`, `r_status`, `field_of_study`, `pdf_file`, `tagging`, `cites`, `views`) VALUES
+(1, 'DEVELOPMENT OF A TRANSFERABLE RESEARCH PORTAL -\r\nCREATING AN ON CAMPUS EQUIVALENT FULLY ONLINE \r\nRESEARCH COURSE COMPONENT\r\n', 'Monash University’s Graduate Diploma in Psychology – Advanced – (GDP-A) is an innovative fully \r\nonline accredited Fourth Year Psychology course which enables its students to undertake further \r\nspecialised professional postgraduate training in psychology. The GDP-A commenced in March 2016 \r\nand consists of four course units and four research units presented in alternating six week teaching \r\nperiods. \r\nMany challenges are arising in the development of the GDP-A which are also opportunities, including \r\nthe translation of a traditional on campus research project into a fully online mode, the ability to scale \r\nfrom a starting number of 80 students to several hundred students, and the development of clinical \r\nand research skills through virtual means. The scale and scope of the GDP-A and its challenges/ \r\nopportunities are unprecedented. \r\nA particularly great challenge and opportunity for the successful development and implementation of \r\nthe GDP-A is the need for a fully online research project that is fully equivalent to an on campus \r\nresearch project. This will consist of a research thesis based on the conducting of experiments, \r\nsurveys, access to or creation of a database and associated statistical analyses. To meet this \r\nchallenge/opportunity we are developing and implementing a Research Portal.\r\n', 'Stephen McKenzie', 'Filia Garivaldis, Angelos Kaissidis, Matt Mundy', '2020-06-28', 'Published', 'Education', 'uploads/Portaldevelopment.pdf', '#learning, #edtech, #engchat', '03', '07'),
+(2, 'sample1', 'wertyuiokjhgfdsasdfghnm', 'Matt Mundy', 'Filia Garivaldis', '2022-03-30', 'Unpublished', 'Materials Science', 'uploads/20090202_ismael_pena-lopez_personal_research_portal.pdf', '#scichat', '07', '02'),
+(3, 'Sample Research 1', 'Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1', 'Stephen McKenzie', 'MERFE D. CAYOT', '2022-03-29', 'Published', 'Education', 'uploads/A Multifunctional Online Research Portal for Facilitation of.pdf', '#learning, #literacy, #edreform', '01', '03'),
+(4, 'The Collaborative Filtering Recommendation Algorithm Based on BP Neural \r\nNetworks\r\n', 'Collaborative filtering is one of the most successful \r\ntechnologies in recommender systems, and widely used in \r\nmany personalized recommender areas with the development \r\nof Internet, such as e-commerce, digital library and so on. The \r\nK-nearest neighbor method is a popular way for the \r\ncollaborative filtering realizations. Its key technique is to find k \r\nnearest neighbors for a given user to predict his interests. \r\nHowever, most collaborative filtering algorithms suffer from \r\ndata sparsity which leads to inaccuracy of recommendation. \r\nAiming at the problem of data sparsity for collaborative \r\nfiltering, a collaborative filtering algorithm based on BP neural \r\nnetworks is presented. This method uses the BP neural \r\nnetworks to fill the vacant ratings at first, then uses \r\ncollaborative filtering to form nearest neighborhood, and lastly \r\ngenerates recommendations. The collaborative filtering based \r\non BP neural networks smoothing can produce more accuracy \r\nrecommendation than the traditional method.', 'Daner Chen', 'Angelos Kaissidis, Matt Mundy, MERFE D. CAYOT', '2022-04-04', 'Unpublished', 'Computer Science', 'uploads/A multi-level collaborative filtering method that improves recommendations.pdf', '#learning, #edtech', '05', '15');
 
 --
 -- Indexes for dumped tables
@@ -328,19 +336,19 @@ ALTER TABLE `tblresearch`
 -- AUTO_INCREMENT for table `tblaccount`
 --
 ALTER TABLE `tblaccount`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tblarticle`
 --
 ALTER TABLE `tblarticle`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tblauthor`
 --
 ALTER TABLE `tblauthor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tblauthorredirect`
@@ -352,7 +360,7 @@ ALTER TABLE `tblauthorredirect`
 -- AUTO_INCREMENT for table `tblcited`
 --
 ALTER TABLE `tblcited`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tblevents`
@@ -364,7 +372,7 @@ ALTER TABLE `tblevents`
 -- AUTO_INCREMENT for table `tbljournal`
 --
 ALTER TABLE `tbljournal`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tblnews`
@@ -376,7 +384,7 @@ ALTER TABLE `tblnews`
 -- AUTO_INCREMENT for table `tblresearch`
 --
 ALTER TABLE `tblresearch`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
