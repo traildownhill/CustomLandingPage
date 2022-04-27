@@ -55,33 +55,7 @@ if (isset($_GET['del'])) {
     message("Article deleted successfully!","1");
   }
 }
-if(isset($_FILES['files'])){
-  $errors= array();
-  $file_name_array = explode('.',$_FILES['files']['name']);
-  $file_size =$_FILES['files']['size'];
-  $file_tmp =$_FILES['files']['tmp_name'];
-  $file_type=$_FILES['files']['type'];
-  $file_ext=strtolower(end($file_name_array));
-  
-  $extensions= array("pdf","txt","docx");
-  
-  if(in_array($file_ext,$extensions)=== false){
-     $errors[]="extension not allowed, please choose a PDF or DOCX file.";
-  }
-  
-  if($file_size > 2097152){
-     $errors[]='File size must be excately 2 MB';
-  }
-  
-  if(empty($errors)==true)
-  {
-     move_uploaded_file($file_tmp,"uploads/".$_FILES['files']['name']);
-     $a_filelocation = "uploads/".$_FILES['files']['name']."";
-  }
-  else{
-     print_r($errors);
-  }
-}
+
 if ($_SERVER['REQUEST_METHOD'] =="POST") {
   if (isset($_POST['create'])) {
     foreach($_POST['a_tagging'] as $tags) {
@@ -145,10 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
            <label for="a_datepub">Date Published</label>
            <input type="date" class="form-control" id="a_datepub" name="a_datepub" required="required">
          </div>
-         <div class="form-group">
-          <label for="files">Add (pdf, txt or docs)</label>
-          <input type="file" class="form-control-file" id="files" name="files" required="required">
-        </div>
+         
         <div class="form-group">
             <label class="label">Tags</label><br>
             <select class="selectpicker form-control"  title="Choose..." data-style="btn-new" multiple data-selected-text-format="count" data-live-search="true" data-mdb-filter="true"id="tags" name="a_tagging[]">
