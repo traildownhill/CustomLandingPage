@@ -147,7 +147,7 @@ include "./admin/research/functions/Message.func.php";
       <div>
       <form action="result.php" method="GET">
         <div class="form-group">
-          <input name="a" class="form-control form-control-lg d-inline" type="text" placeholder="Search Here!" aria-label=".form-control-lg example" style="width: 80%;" value="">
+          <input name="a" class="form-control form-control-lg d-inline" type="text" placeholder="Search 52,923 papers from all fields of science" aria-label=".form-control-lg example" style="width: 80%;" value="">
           <select class="custom-select-lg d-inline" id="search_type" name="u" style="width: 14%;">
           <option selected value="r">Researches</option>
             <option value="j">Journals</option>

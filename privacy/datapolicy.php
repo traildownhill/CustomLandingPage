@@ -63,14 +63,14 @@ include_once("../db.php");
           </div>
                 <div class="card-body">
                   <h2 class="card-title">Introduction</h2>
-                  <p class="card-text">A Research Portal is a website or service that offers a broad array of resources and online services, such as search engines, directories, research, journal, articles and online information. Portals have evolved to provide a customised gateway to Web information. 
+                  <p class="card-text" style="text-align:justify">A Research Portal is a website or service that offers a broad array of resources and online services, such as search engines, directories, research, journal, articles and online information. Portals have evolved to provide a customised gateway to Web information. 
                     This study aimed to develop an Online Research Portal. Specifically, it aimed to create an online repository of researches and articles, publish researches and articles online, manage web content, distribute content depending on the user privileges and access level, create a venue for collaboration with other research institutions, create linkages with other research institutions, access information while off-campus, and disseminate latest update on research. 
                     </p> 
                 </div>
 
                 <div class="card-body">
                   <h4 class="card-title">What kind of data is collected?</h4>
-                  <p class="card-text">We collect different categories of data whenever you use the Research Portal:</p>
+                  <p class="card-text" style="text-align:justify">We collect different categories of data whenever you use the Research Portal:</p>
                   <h5 class="card-title">a. Personal Information and Sensitive Personal Information (collectively, Personal Data)</h5>
             
                                     <table class="table table-bordered">
@@ -93,7 +93,7 @@ include_once("../db.php");
                 
                 <hr>
                 <h5 class="card-title">b. Data usage</h5>
-                <p class="card-text">By accessing the web application, you share some information that will be processed for the purpose of monitoring and analyzing web traffic. 
+                <p class="card-text" style="text-align:justify">By accessing the web application, you share some information that will be processed for the purpose of monitoring and analyzing web traffic. 
                     This will allow us to maintain and improve our services for the benefit of Arellano University. The information processed may include but is not limited to IP addresses, 
                     system configuration information, and other information about traffic to and from the web application, devices, and/or networks.</p>
                    

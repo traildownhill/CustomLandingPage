@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 	$mysqli = mysqli_connect("localhost","root","","research_portal");
 	
 	if (mysqli_connect_errno())
