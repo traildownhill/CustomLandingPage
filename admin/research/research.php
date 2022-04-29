@@ -172,8 +172,9 @@ if(isset($_FILES['files'])){
         
             <div class="form-group">
             <label class="label">Main Author *</label><br>
-            <select class="custom-select" id="txtmain-author" name="txtmain-author" required="required">
-            <option hidden>Select... </option>
+            <select class="selectpicker form-control"  data-style="btn-new" data-live-search="true" data-mdb-filter="true"id="txtmain-author" name="txtmain-author" required="required">
+          <!-- <select class="selectpicker form-control" data-live-search="true" data-mdb-filter="true" id="txtmain-author" name="txtmain-author" required="required"> -->
+            <option hidden ></option>
             <?php
             $result = get_author($connect);
             if ($result->num_rows>0) 
@@ -243,11 +244,12 @@ if(isset($_FILES['files'])){
           </div>
         </div>
 
+          <!-- STATUS -->
         <div class="col">
           <div class="form-group">
             <label class="label">Research Status*</label><br>
             <select class="custom-select" id="rstatus" name="rstatus" required="required">
-            <option hidden>Select... </option>
+            <option hidden></option>
               <option>Published</option>
               <option> Unpublished</option>
             </select>
@@ -259,7 +261,7 @@ if(isset($_FILES['files'])){
           <div class="form-group">
             <label class="label">Field of Study *</label><br>
             <select class="custom-select" id="fstudy" name="fstudy" required="required">
-            <option hidden>Select... </option>
+            <option hidden></option>
               <option>Art</option>
               <option> Biology</option>
               <option> Business</option>

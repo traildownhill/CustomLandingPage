@@ -24,12 +24,13 @@ if(isset($_POST['but_submit']))
         $hash = $row['pass'];
         $status = $row['status'];
         $fname = $row['name'];
+        $sub = $row['subcribe'];
         $categ = $row['ucategory'];
 
        
         if($_POST['username'] && password_verify($_POST['password'], $hash))
         {
-            if($status == "Active" || $status == "Inactive")
+            if($sub == "Yes")
             {
                 if($categ == "Administrator")
                 {
@@ -56,7 +57,7 @@ if(isset($_POST['but_submit']))
             }
             else
             {
-              // echo '<script>alert("Account Inactive")</script>';
+               echo '<script>alert("Account is not Subscribe, Please click the link above for the Subscription Proccessing Steps")</script>';
             }
         }
         else
@@ -104,18 +105,13 @@ if(isset($_POST['but_submit']))
               <input type="checkbox" onclick="myFunction()">  Show Password
               <!-- <p class="font-small blue-text d-flex justify-content-end"><a href="#" class="blue-text ml-1">Forgot Password?</a></p> -->
             </div>
-
-
-            <div class="md-form">
-            <input type="checkbox" id="myCheck" name="accept" value="yes" required> 
-            "I agree to the Terms and Conditions" or "I agree to the <a href="../privacy/datapolicy.php">Privacy Policy </a>"
-            </div>
-
+            
           <div class="text-center mb-3">
             
             <button type="submit" class="btn btn-primary btn-block z-depth-1a" id="but_submit" name="but_submit" >Sign in</button>
           </div>
-          <span>Don't have an account? <a href="../signup/signup.php" >Create a free account</span>
+          <label>Don't have an account? <a href="../signup/signup.php" >Create a free account</a></label><br>
+          <label>Not Yet Subscribe? <a href="" >Follow the Steps</a></label>
         </form>
     
         <!-- <p class="font-small dark-grey-text d-flex justify-content-center">or sign in with:</p>
