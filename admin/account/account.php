@@ -101,7 +101,6 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
 
 
 ?>
-l;\;;ffff;;;
 <div class="container">
   <!-- Create task button -->
   <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#create-project">
