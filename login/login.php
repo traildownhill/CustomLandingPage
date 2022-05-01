@@ -57,7 +57,7 @@ if(isset($_POST['but_submit']))
             }
             else
             {
-               echo '<script>alert("Account is not Subscribe, Please click the link above for the Subscription Proccessing Steps")</script>';
+              header("location: ../resource/RPD_Approval.php");
             }
         }
         else

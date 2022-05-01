@@ -76,6 +76,13 @@ include "functions/functions.php";
           { 
             if ($_SESSION['role']=="Administrator")
             { ?>
+              <li class="nav-item dropdown" >
+              <a class="nav-link dropdown-toggle" href="#"id="navbarDropdown" role="button"data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Report</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="./report/mostcited_report.php">Most Cited</a>
+                      <a class="dropdown-item" href="./report/mostview_report.php">Most View</a>
+                    </div>
+                  </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#"id="navbarDropdown" role="button"data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Management</a>
               <?php 

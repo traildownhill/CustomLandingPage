@@ -55,7 +55,6 @@ header("Location: ../../../login/login.php");
 //   $rowcount = mysqli_num_rows( $result );
 // }
 ?>
-<body>
 <header id="header" class="fixed-top">
     <div class="container">
       <div class="logo float-left">
@@ -69,6 +68,13 @@ header("Location: ../../../login/login.php");
           { 
             if ($_SESSION['role']=="Administrator")
             { ?>
+            <li class="nav-item dropdown" >
+              <a class="nav-link dropdown-toggle" href="#"id="navbarDropdown" role="button"data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Report</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="./mostcited_report.php">Most Cited</a>
+                      <a class="dropdown-item" href="./mostview_report.php">Most View</a>
+                    </div>
+                  </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#"id="navbarDropdown" role="button"data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Management</a>
               <?php 
@@ -76,7 +82,7 @@ header("Location: ../../../login/login.php");
             ?>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <?php if ($_SESSION['role'] == "Administrator") { ?>
-                  <a class="dropdown-item" href="../account.php">Account </a>
+                  <a class="dropdown-item" href="../../account/account.php">Account </a>
                   <?php } ?>
 
                   <?php if ($_SESSION['role'] == "Administrator") { ?>
@@ -155,7 +161,7 @@ header("Location: ../../../login/login.php");
    ?>
      <div class="container">
       <!-- Left Side -->
-      <div style="display: inline-table; float:left">
+      <center>
           
          <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
          <script type="text/javascript">  
@@ -187,10 +193,9 @@ header("Location: ../../../login/login.php");
           <div style="width:800px;">   
                 <div id="piechart" style="width: 700px; height: 400px;"></div>  
           </div>  
-      </div>
+      </center>
 
       <!-- Right Side -->
-      <div style="display: inline-table; float:right; padding-right:7%;"
       <div class="card">
           <h5 style="margin-top:10px; margin-left:10px; margin-right:10px;"><center>3 Most Viewed</center></h5>
           <?php
@@ -225,7 +230,50 @@ header("Location: ../../../login/login.php");
                 <td><b><?php echo $row['id']?></b></td>
                 <td><b><?php echo $row['title']?></b></td>
                 <td><b><?php echo $row['views']?></b></td>
-              </tr>
+                </tr>
+              <?php
+            }
+            
+          ?>
+          </tbody>
+          </table>
+          </ul>
+      </div><br>
+      <!-- All  -->
+      <div class="card">
+          <h5 style="margin-top:10px; margin-left:10px; margin-right:10px;"><center>All Research Paper</center></h5>
+          <?php
+            $query = "SELECT * FROM tblresearch ORDER BY views DESC Limit 3";  
+            $result = mysqli_query($connect, $query);
+            $cite = 0;
+            while($row = mysqli_fetch_assoc($result))
+            {
+              $cite += $row['views'];
+            }
+            
+          ?>
+          <ul style="margin-top:10px; margin-left:10px; margin-right:10px;">
+          <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Views</th>
+                </tr>
+              </thead>
+              <tbody>
+          <?php
+            $query = "SELECT * FROM tblresearch ORDER BY views DESC";  
+            $result = mysqli_query($connect, $query);
+            $cite = 0;
+            while($row = mysqli_fetch_assoc($result))
+            {
+              ?>
+              <tr>
+                <td><b><?php echo $row['id']?></b></td>
+                <td><b><?php echo $row['title']?></b></td>
+                <td><b><?php echo $row['views']?></b></td>
+                </tr>
               <?php
             }
             
@@ -234,8 +282,27 @@ header("Location: ../../../login/login.php");
           </table>
           </ul>
       </div><br><br>
-      </div>
+     </div>
 
-</div>
 </section>
+  </body>
 </main>
+</html>
+<script src="//cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+  <!-- JavaScript Libraries -->
+  <script src="../../../resource/lib/jquery/jquery.min.js"></script>
+  <script src="../../../resource/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="../../../resource/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../../resource/lib/easing/easing.min.js"></script>
+  <script src="../../../resource/lib/mobile-nav/mobile-nav.js"></script>
+  <script src="../../../resource/lib/wow/wow.min.js"></script>
+  <script src="../../../resource/lib/waypoints/waypoints.min.js"></script>
+  <script src="../../../resource/lib/counterup/counterup.min.js"></script>
+  <script src="../../../resource/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="../../../resource/lib/isotope/isotope.pkgd.min.js"></script>
+  <script src="../../../resource/lib/lightbox/js/lightbox.min.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="../CustomLandingPage/login/script/main.js"></script>
+  <script src="./js/main.js"></script>

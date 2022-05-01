@@ -69,7 +69,7 @@ include "./admin/research/functions/Message.func.php";
       <!-- Condition for user -->
       <nav class="main-nav float-right d-none d-lg-block" >
         <ul>
-        <?php 
+        <?php
           if (isset($_SESSION['id'])) 
           { 
             if ($_SESSION['role']=="Administrator")
@@ -114,12 +114,13 @@ include "./admin/research/functions/Message.func.php";
                   </div>
                 </li>
                   <li><a><?php echo $_SESSION['name'];?></a></li>
+
                   <li class="nav-item dropdown" >
                   <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user"></i>&nbsp;</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <!-- <a class="dropdown-item" href="../profile/profile.php">Profile</a>
-                      <a class="dropdown-item" href="#aboutus">About Us</a> -->
+                      <!-- <a class="dropdown-item" href="../profile/profile.php">Profile</a> -->
+                      <a class="dropdown-item" href="./resource/help.html">Help</a>
                       <a class="dropdown-item" href="signup/logout.php">Signout</a>
                     </div>
                   </li>
@@ -127,6 +128,9 @@ include "./admin/research/functions/Message.func.php";
           } 
           else 
           { 
+            ?>
+             <li><a href="./resource/help.html">Help</a></li>
+            <?php
             // header("Location: login/login.php");
           }?>
         </ul>
@@ -171,23 +175,7 @@ include "./admin/research/functions/Message.func.php";
   </section>
   
   <main>
-  <?php
-          if (isset($_SESSION['id'])) 
-  { 
-  if ($_SESSION['role'] == "") 
-          { 
-              
-          }
-          else
-          {
-            ?>
-            <br><br><br>
-            <img src="./resource/img/userquickguide.png" alt="Paris" class="center">
-            <br><br><br>
-          <?php
-          }
-        }
-          ?>
+
   </main>
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
   <!-- Uncomment below i you want to use a preloader -->
