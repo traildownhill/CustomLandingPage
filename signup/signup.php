@@ -126,7 +126,7 @@ if(isset($_POST['btnsubmit']))
 
                   <div class="md-form">
             <input type="checkbox" id="myCheck" name="accept" value="yes" required> 
-            "I agree to the Terms and Conditions" or "I agree to the Privacy Policy"
+            "I agree to the Terms and Conditions" or " <a href ="../privacy/datapolicy.php"> I agree to the Privacy Policy"</a>
             </div>
 
                 <button type="submit" class="btn btn-primary btn-block" name="btnsubmit">Register</button>

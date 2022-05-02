@@ -106,7 +106,10 @@ include_once("../db.php");
                 
                     <h4 class="card-title">Concerns and Questions</h4>  
                     <p class="card-text">In case of complaints, concerns, or questions regarding the processing of your Personal Data, or if you wish to exercise your data subject rights, you may address them to:</p>
-                
+                       <p> <a href="#"> Jaren Heruela</a> <br>  jarenloydheruela@gmail.com </p>
+                       <p> <a href="#"> Jeric Malapad</a><br> jmalapad.qcesu@gmail.com</p>
+                       <p> <a href="#"> Xam Ebora</a><br>Ebora20@gmail.com</p>
+                       <p> <a href="#"> Erl Malindog</a><br> iambryanmalindog@gmail.com</p>              
 </div>
           </div>
             
