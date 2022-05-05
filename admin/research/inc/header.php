@@ -66,7 +66,7 @@ include "functions/functions.php";
   <header id="header" class="fixed-top">
     <div class="container">
       <div class="logo float-left">
-       <a href="/CustomLandingPage/index.php" class="scrollto"><img src="../../resource/img/logo.png" alt="" class="img-fluid" >&nbsp;<strong>AU RESEARCH PORTAL</strong></a>
+       <a href="/CustomLandingPage/admin/index.php" class="scrollto"><img src="../../resource/img/logo.png" alt="" class="img-fluid" >&nbsp;<strong>AU RESEARCH PORTAL</strong></a>
       </div>
       
       <nav class="main-nav float-right d-none d-lg-block" >
@@ -76,13 +76,13 @@ include "functions/functions.php";
           { 
             if ($_SESSION['role']=="Administrator")
             { ?>
-              <li class="nav-item dropdown" >
+              <!-- <li class="nav-item dropdown" >
               <a class="nav-link dropdown-toggle" href="#"id="navbarDropdown" role="button"data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Report</a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item" href="./report/mostcited_report.php">Most Cited</a>
                       <a class="dropdown-item" href="./report/mostview_report.php">Most View</a>
                     </div>
-                  </li>
+                  </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#"id="navbarDropdown" role="button"data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Management</a>
               <?php 

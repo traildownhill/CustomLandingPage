@@ -60,6 +60,13 @@
           { 
             if ($_SESSION['role']=="Administrator")
             { ?>
+            <!-- <li class="nav-item dropdown" >
+              <a class="nav-link dropdown-toggle" href="#"id="navbarDropdown" role="button"data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Report</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="./research/report/mostcited_report.php">Most Cited</a>
+                      <a class="dropdown-item" href="./research/report/mostview_report.php">Most View</a>
+                    </div>
+                  </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#"id="navbarDropdown" role="button"data-toggle="dropdown" aria-haspopup="true"aria-expanded="false">Management</a>
               <?php 
@@ -130,7 +137,10 @@
               <div class="intro-info">    
                   <!-- <h2>Arellano Research <span> Portal <span></h2> -->
                   <div class="card-group d-flex justify-content-center">
+                  
+                  
                   <div class="col-md-3 col-sm-5">
+                  <a href="./account/account.php">
                       <div class="card">
                         <div class="card-body">
                           <!-- change function to the designated function of your assign management -->
@@ -139,10 +149,11 @@
                           <h5 class="card-title">All Account</h5>
                           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>
-                      </div>
+                      </div></a>
                     </div>
 
                     <div class="col-md-3 col-sm-5">
+                    <a href="./author/author.php">
                       <div class="card">
                         <div class="card-body">
                           <!-- change function to the designated function of your assign management -->
@@ -152,9 +163,11 @@
                           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>
                       </div>
+                    </a>
                     </div>
 
                     <div class="col-md-3 col-sm-5">
+                    <a href="./research/research.php">
                       <div class="card">
                         <div class="card-body">
                           <!-- change function to the designated function of your assign management -->
@@ -164,9 +177,11 @@
                           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>
                       </div>
+                    </a>
                     </div>
 
                     <div class="col-md-3 col-sm-5">
+                    <a href="./journal/journal.php">
                       <div class="card">
                         <div class="card-body">
                           <!-- change function to the designated function of your assign management -->
@@ -176,11 +191,13 @@
                           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>
                       </div>
+                    </a>
                     </div>
                   </div>
 
                   <div class="card-group d-flex justify-content-center ">
                     <div class="col-md-3 col-sm-5">
+                    <a href="./article/article.php">
                       <div class="card">
                         <div class="card-body">
                           <!-- change function to the designated function of your assign management -->
@@ -190,9 +207,11 @@
                           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>
                       </div>
+                    </a>
                     </div>
 
                     <div class="col-md-3 col-sm-5">
+                    <a href="./news/index.php">
                       <div class="card">
                         <div class="card-body">
                           <!-- change function to the designated function of your assign management -->
@@ -202,9 +221,11 @@
                           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                         </div>
                       </div>
+                    </a>
                     </div>
 
                     <div class="col-md-3 col-sm-5">
+                    <a href="./events/index.php">
                       <div class="card">
                         <div class="card-body">
                           <!-- change function to the designated function of your assign management -->

@@ -481,6 +481,8 @@ if(isset($_GET["req"]))
                       {
                         while ($data = mysqli_fetch_array($result))
                         {
+                          $citing = $data['cites'];
+                          $viewing = $data['views'];
                            ?>
                            <tr>
                            <div class="col-md-6 col-lg-10 offset-lg-1 wow bounceInUp" data-wow-duration="0.3s">
@@ -506,7 +508,26 @@ if(isset($_GET["req"]))
                                  <ul class="list-inline" style="padding-left: 40px; font-size: small;">
                                     <li class="list-inline-item" id="rView<?php echo $data['id'];?>" value="<?php echo $data['views'];?>"><b>Views: <?php echo $data['views'];?></b></li>
                                     <li class="list-inline-item" id="rCite<?php echo $data['id'];?>" value="<?php echo $data['cites'];?>"><b>Cite: <?php echo $data['cites'];?></b></li>
-                                 </ul>
+                                  </ul>
+                                  <?php
+                                  if($citing >= "05"){
+                                    ?>
+                                    <div class="badge badge-info text-wrap" style="width: 5rem; padding:5px;" >
+                                     <!-- change to.. -->
+                                     <span>Most Cited</span>
+                                     </div>
+                                    <?php
+                                  }
+                                  if($viewing >= "07"){
+                                    ?>
+                                    <div class="badge badge-info text-wrap" style="width: 6rem; padding:5px;" >
+                                     <!-- change to.. -->
+                                     <span>Most Viewed</span>
+                                     </div>
+                                    <?php
+                                  }
+                                  ?>
+                                  
                               </div>
                            </div>
                            </tr>
@@ -659,51 +680,7 @@ if(isset($_GET["req"]))
       </div>
       </div>
 
-        <div class="row">
-          <div class="container">
-                    
-
-            <div class="card wow bounceInUp" data-wow-duration="0.3s">
-            <div class="card-header">
-              Featured
-            </div>
-            <?php
-              $query = "SELECT * FROM tblresearch ORDER BY cites DESC Limit 1";  
-              $result = mysqli_query($connect, $query);
-              $cite = 0;
-              $view =0;
-              while($row = mysqli_fetch_assoc($result))
-              {
-                ?>
-                  <div class="card-body">
-                    <h5 class="card-title">Most Cited Research</h5>
-                    <p class="card-text"><?php echo $row['title']?></p> 
-                  </div>
-            <hr>
-            <?php
-              }
-            ?>
-              <?php
-              $query2 = "SELECT * FROM tblresearch ORDER BY views DESC LIMIT 1";
-              $result2 = mysqli_query($connect, $query2);
-              $view =0;
-              while($row = mysqli_fetch_assoc($result2))
-              {
-                ?>
-                  <div class="card-body">
-                    <h5 class="card-title">Most Viewed Research</h5>
-                    <p class="card-text"><?php echo $row['title']?></p>
-                  </div>
-            </div>
-          <?php
-            }
-            
-          ?>
-
-
-
-          </div>
-        </div>
+        
         
     </div>
     </section>

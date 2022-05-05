@@ -262,7 +262,7 @@ header("Location: ../../../login/login.php");
               </thead>
               <tbody>
           <?php
-            $query = "SELECT * FROM tblresearch ORDER BY cites DESC Limit 3";  
+            $query = "SELECT * FROM tblresearch ORDER BY cites DESC";  
             $result = mysqli_query($connect, $query);
             $cite = 0;
             while($row = mysqli_fetch_assoc($result))

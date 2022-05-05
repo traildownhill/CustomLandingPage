@@ -243,7 +243,7 @@ header("Location: ../../../login/login.php");
       <div class="card">
           <h5 style="margin-top:10px; margin-left:10px; margin-right:10px;"><center>All Research Paper</center></h5>
           <?php
-            $query = "SELECT * FROM tblresearch ORDER BY views DESC";  
+            $query = "SELECT * FROM tblresearch ORDER BY views DESC Limit 3";  
             $result = mysqli_query($connect, $query);
             $cite = 0;
             while($row = mysqli_fetch_assoc($result))

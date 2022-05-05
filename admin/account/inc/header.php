@@ -81,9 +81,9 @@ include "functions/functions.php";
                   <a class="dropdown-item" href="../news/index.php">News</a>
                   <a class="dropdown-item" href="../events/index.php">Events</a>
                   </li>
-                  
-                  <!-- <li class="nav-item active"><a class="dropdown-item" href="../../signup/logout.php">Signout</a></li> -->
+
                   <?php } ?>
+                  <li><a><?php echo $_SESSION['name'];?></a></li>
                   <?php if ($_SESSION['role']=="Administrator" || $_SESSION['role']=="Visitor") { ?>
                   <li class="nav-item dropdown" >
                   <a class="nav-link " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

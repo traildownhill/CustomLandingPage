@@ -140,7 +140,7 @@ header("Location: ../../../login/login.php");
   <section id="intro" class="clearfix">
   <div class="container">
    <a href="../research.php"><button class="btn btn-light-blue btn-md">Back</button></a>
-  <h3 style="color:#fff;">&nbsp;<b> Report for Most View </b></h3>
+  <h3 style="color:#fff;">&nbsp;<b> Report for Most Cited </b></h3>
    </div>
 </section>
   
@@ -156,14 +156,13 @@ header("Location: ../../../login/login.php");
   <main id="main">
   <body>
   <?php 
-       $query = "SELECT * FROM tblresearch ORDER BY views DESC Limit 3";  
+       $query = "SELECT * FROM tblresearch ORDER BY cites DESC Limit 3";  
        $result = mysqli_query($connect, $query);
    ?>
      <div class="container">
-      <!-- Left Side -->
+       <!-- Top Side -->
       <center>
-          
-         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
          <script type="text/javascript">  
          google.charts.load('current', {'packages':['corechart']});  
          google.charts.setOnLoadCallback(drawChart);  
@@ -175,13 +174,13 @@ header("Location: ../../../login/login.php");
                   while($row = mysqli_fetch_assoc($result))  
                   {
                     ?>
-                    ['<?php echo $row['id'];?>',<?php echo $row['views'];?>, 'silver'],
+                    ['<?php echo $row['id'];?>',<?php echo $row['cites'];?>, 'silver'],
                     <?php
                   }  
                   ?>  
                    ]);  
               var options = {  
-                    title: 'Percentage of Viewed Research',  
+                    title: 'Percentage of Cited Research',  
                     //is3D:true,  
                     pieHole: 0.4  
                    };  
@@ -192,19 +191,19 @@ header("Location: ../../../login/login.php");
          <br>
           <div style="width:800px;">   
                 <div id="piechart" style="width: 700px; height: 400px;"></div>  
-          </div>  
-      </center>
+          </div> 
+          </center>
 
-      <!-- Right Side -->
-      <div class="card">
-          <h5 style="margin-top:10px; margin-left:10px; margin-right:10px;"><center>3 Most Viewed</center></h5>
+          <!-- Down Side -->
+          <div class="card">
+          <h5 style="margin-top:10px; margin-left:10px; margin-right:10px;"><center>3 Most Cited</center></h5>
           <?php
-            $query = "SELECT * FROM tblresearch ORDER BY views DESC Limit 3";  
+            $query = "SELECT * FROM tblresearch ORDER BY cites DESC Limit 3";  
             $result = mysqli_query($connect, $query);
             $cite = 0;
             while($row = mysqli_fetch_assoc($result))
             {
-              $cite += $row['views'];
+              $cite += $row['cites'];
             }
             
           ?>
@@ -215,12 +214,12 @@ header("Location: ../../../login/login.php");
                 <tr>
                   <th scope="col">ID</th>
                   <th scope="col">Title</th>
-                  <th scope="col">Views</th>
+                  <th scope="col">Cites</th>
                 </tr>
               </thead>
               <tbody>
           <?php
-            $query = "SELECT * FROM tblresearch ORDER BY views DESC LIMIT 3";  
+            $query = "SELECT * FROM tblresearch ORDER BY cites DESC Limit 3";  
             $result = mysqli_query($connect, $query);
             $cite = 0;
             while($row = mysqli_fetch_assoc($result))
@@ -229,8 +228,8 @@ header("Location: ../../../login/login.php");
               <tr>
                 <td><b><?php echo $row['id']?></b></td>
                 <td><b><?php echo $row['title']?></b></td>
-                <td><b><?php echo $row['views']?></b></td>
-                </tr>
+                <td><b><?php echo $row['cites']?></b></td>
+              </tr>
               <?php
             }
             
@@ -239,16 +238,16 @@ header("Location: ../../../login/login.php");
           </table>
           </ul>
       </div><br>
-      <!-- All  -->
+      <!-- All -->
       <div class="card">
           <h5 style="margin-top:10px; margin-left:10px; margin-right:10px;"><center>All Research Paper</center></h5>
           <?php
-            $query = "SELECT * FROM tblresearch ORDER BY views DESC";  
+            $query = "SELECT * FROM tblresearch ORDER BY cites DESC";  
             $result = mysqli_query($connect, $query);
             $cite = 0;
             while($row = mysqli_fetch_assoc($result))
             {
-              $cite += $row['views'];
+              $cite += $row['cites'];
             }
             
           ?>
@@ -258,12 +257,12 @@ header("Location: ../../../login/login.php");
                 <tr>
                   <th scope="col">ID</th>
                   <th scope="col">Title</th>
-                  <th scope="col">Views</th>
+                  <th scope="col">Cites</th>
                 </tr>
               </thead>
               <tbody>
           <?php
-            $query = "SELECT * FROM tblresearch ORDER BY views DESC";  
+            $query = "SELECT * FROM tblresearch ORDER BY cites DESC Limit 3";  
             $result = mysqli_query($connect, $query);
             $cite = 0;
             while($row = mysqli_fetch_assoc($result))
@@ -272,8 +271,8 @@ header("Location: ../../../login/login.php");
               <tr>
                 <td><b><?php echo $row['id']?></b></td>
                 <td><b><?php echo $row['title']?></b></td>
-                <td><b><?php echo $row['views']?></b></td>
-                </tr>
+                <td><b><?php echo $row['cites']?></b></td>
+              </tr>
               <?php
             }
             
@@ -282,8 +281,7 @@ header("Location: ../../../login/login.php");
           </table>
           </ul>
       </div><br><br>
-     </div>
-
+      </div>
 </section>
   </body>
 </main>

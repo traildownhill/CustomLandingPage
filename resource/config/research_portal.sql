@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 27, 2022 at 05:11 PM
+-- Generation Time: May 05, 2022 at 04:08 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -48,7 +48,8 @@ INSERT INTO `tblaccount` (`id`, `name`, `username`, `pass`, `email`, `status`, `
 (1, 'Administrator', 'admin', '$2y$12$fTpGJB44Zzj1PVr67WV0gegUsuvnMgbE.x8wgkpqBGDfCCITDmBIG', 'admin@gmail.com', 'Active', 'Administrator', 'Yes', '', ''),
 (2, 'User', 'user', '$2y$12$D36eR9bYAr0uTIhV4OsLfe/1/Iu6iAS48wykkSAVvzKQ4tb.oiEJ6', 'user@gmail.com', 'Inactive', 'User', 'Yes', '', ''),
 (3, 'external1', 'external1', '$2y$12$WZO.0ecsvfHNiMK/LA129ucgx5x8PjqVgooJZFtwqyTRTDIMYHPQG', 'xternal1@gmail.com', 'Active', 'User', 'Yes', '', ''),
-(4, 'D. Saraswathi', 'aujsc.com.heruela.j', '$2y$12$g81Msr2N9xMIUVw6yldIMu/NAtkeblMRCn/R8uQgFvRKzKAXrSZym', 'jarenloydheruela@gmail.com', 'Active', 'User', 'No', '', '');
+(4, 'D. Saraswathi', 'aujsc.com.heruela.j', '$2y$12$g81Msr2N9xMIUVw6yldIMu/NAtkeblMRCn/R8uQgFvRKzKAXrSZym', 'jarenloydheruela@gmail.com', 'Active', 'User', 'No', '', ''),
+(5, 'kyle madasa', 'kyle', '$2y$12$OsVWWOQTE68it56XNINKS.HtBPvWaV1fqUQNAB99f24PPu/hJSVAK', 'kyle@gmail.com', 'Unsubscribe', 'User', 'No', '', '');
 
 -- --------------------------------------------------------
 
@@ -268,7 +269,10 @@ INSERT INTO `tblresearch` (`id`, `title`, `abstract`, `main_author`, `co_authors
 (1, 'DEVELOPMENT OF A TRANSFERABLE RESEARCH PORTAL -\r\nCREATING AN ON CAMPUS EQUIVALENT FULLY ONLINE \r\nRESEARCH COURSE COMPONENT\r\n', 'Monash University’s Graduate Diploma in Psychology – Advanced – (GDP-A) is an innovative fully \r\nonline accredited Fourth Year Psychology course which enables its students to undertake further \r\nspecialised professional postgraduate training in psychology. The GDP-A commenced in March 2016 \r\nand consists of four course units and four research units presented in alternating six week teaching \r\nperiods. \r\nMany challenges are arising in the development of the GDP-A which are also opportunities, including \r\nthe translation of a traditional on campus research project into a fully online mode, the ability to scale \r\nfrom a starting number of 80 students to several hundred students, and the development of clinical \r\nand research skills through virtual means. The scale and scope of the GDP-A and its challenges/ \r\nopportunities are unprecedented. \r\nA particularly great challenge and opportunity for the successful development and implementation of \r\nthe GDP-A is the need for a fully online research project that is fully equivalent to an on campus \r\nresearch project. This will consist of a research thesis based on the conducting of experiments, \r\nsurveys, access to or creation of a database and associated statistical analyses. To meet this \r\nchallenge/opportunity we are developing and implementing a Research Portal.\r\n', 'Stephen McKenzie', 'Filia Garivaldis, Angelos Kaissidis, Matt Mundy', '2020-06-28', 'Published', 'Education', 'uploads/Portaldevelopment.pdf', '#learning, #edtech, #engchat', '03', '07'),
 (2, 'sample1', 'wertyuiokjhgfdsasdfghnm', 'Matt Mundy', 'Filia Garivaldis', '2022-03-30', 'Unpublished', 'Materials Science', 'uploads/20090202_ismael_pena-lopez_personal_research_portal.pdf', '#scichat', '07', '02'),
 (3, 'Sample Research 1', 'Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1Sample Research 1', 'Stephen McKenzie', 'MERFE D. CAYOT', '2022-03-29', 'Published', 'Education', 'uploads/A Multifunctional Online Research Portal for Facilitation of.pdf', '#learning, #literacy, #edreform', '01', '03'),
-(4, 'The Collaborative Filtering Recommendation Algorithm Based on BP Neural \r\nNetworks\r\n', 'Collaborative filtering is one of the most successful \r\ntechnologies in recommender systems, and widely used in \r\nmany personalized recommender areas with the development \r\nof Internet, such as e-commerce, digital library and so on. The \r\nK-nearest neighbor method is a popular way for the \r\ncollaborative filtering realizations. Its key technique is to find k \r\nnearest neighbors for a given user to predict his interests. \r\nHowever, most collaborative filtering algorithms suffer from \r\ndata sparsity which leads to inaccuracy of recommendation. \r\nAiming at the problem of data sparsity for collaborative \r\nfiltering, a collaborative filtering algorithm based on BP neural \r\nnetworks is presented. This method uses the BP neural \r\nnetworks to fill the vacant ratings at first, then uses \r\ncollaborative filtering to form nearest neighborhood, and lastly \r\ngenerates recommendations. The collaborative filtering based \r\non BP neural networks smoothing can produce more accuracy \r\nrecommendation than the traditional method.', 'Daner Chen', 'Angelos Kaissidis, Matt Mundy, MERFE D. CAYOT', '2022-04-04', 'Unpublished', 'Computer Science', 'uploads/A multi-level collaborative filtering method that improves recommendations.pdf', '#learning, #edtech', '05', '15');
+(4, 'The Collaborative Filtering Recommendation Algorithm Based on BP Neural \r\nNetworks\r\n', 'Collaborative filtering is one of the most successful \r\ntechnologies in recommender systems, and widely used in \r\nmany personalized recommender areas with the development \r\nof Internet, such as e-commerce, digital library and so on. The \r\nK-nearest neighbor method is a popular way for the \r\ncollaborative filtering realizations. Its key technique is to find k \r\nnearest neighbors for a given user to predict his interests. \r\nHowever, most collaborative filtering algorithms suffer from \r\ndata sparsity which leads to inaccuracy of recommendation. \r\nAiming at the problem of data sparsity for collaborative \r\nfiltering, a collaborative filtering algorithm based on BP neural \r\nnetworks is presented. This method uses the BP neural \r\nnetworks to fill the vacant ratings at first, then uses \r\ncollaborative filtering to form nearest neighborhood, and lastly \r\ngenerates recommendations. The collaborative filtering based \r\non BP neural networks smoothing can produce more accuracy \r\nrecommendation than the traditional method.', 'Daner Chen', 'Angelos Kaissidis, Matt Mundy, MERFE D. CAYOT', '2022-04-04', 'Unpublished', 'Computer Science', 'uploads/A multi-level collaborative filtering method that improves recommendations.pdf', '#learning, #edtech', '05', '15'),
+(10, 'y7ui', 'fvghfvghghj', 'Stephen McKenzie', ', Stephen McKenzie, Filia Garivaldis', '2022-03-31', 'Select...', 'Select...', 'uploads/Resume.pdf', '', '0', '0'),
+(11, 'GYHJGHJ', 'gyugyhuj', 'jaren jaren', 'jaren jaren', '2022-04-11', 'Published', 'Linguistics', 'uploads/untitled.pdf', '', '0', '0'),
+(12, 'ertyu', 'lkjhgfyt', 'Daner Chen', ', Stephen McKenzie, Filia Garivaldis, Angelos Kaissidis', '2022-05-05', 'Unpublished', 'Materials Science', 'uploads/Resume.pdf', '', '0', '0');
 
 --
 -- Indexes for dumped tables
@@ -336,7 +340,7 @@ ALTER TABLE `tblresearch`
 -- AUTO_INCREMENT for table `tblaccount`
 --
 ALTER TABLE `tblaccount`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tblarticle`
@@ -384,7 +388,7 @@ ALTER TABLE `tblnews`
 -- AUTO_INCREMENT for table `tblresearch`
 --
 ALTER TABLE `tblresearch`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

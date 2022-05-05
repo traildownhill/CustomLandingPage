@@ -256,6 +256,8 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
        <th scope="col">Creator</th>
        <th scope="col">Date Published</th>
        <th scope="col">Created</th>
+       <th scope="col"></th>
+       <th scope="col"></th>
        <th scope="col" align="center">Option</th>
      </tr>
    </thead>
@@ -278,6 +280,16 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
        </td>
        <td><?php echo date("Y-m-d",strtotime($data['datepub']));?></td>
        <td><?php echo date("Y-m-d",strtotime($data['created']));?></td>
+       <td><?php 
+         if($data['cites'] >= "5"){
+           echo "Most Cited";
+         }
+         ?></td>
+         <td><?php 
+         if($data['views'] >= "10"){
+           echo "Most View";
+         }?>
+        </td>
        <td align="center"><div class="dropdown">
          <button class="btn btn-light btn-sm" type="button" id="option" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
            <i class="fa fa-ellipsis-h"></i>

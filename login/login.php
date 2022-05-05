@@ -1,6 +1,5 @@
 <?php
 include_once ("../login/inc/header.php");
-
 if(isset($_POST['but_submit']))
     {
       if(empty($_POST['username']) && empty($_POST['password']))
@@ -111,7 +110,7 @@ if(isset($_POST['but_submit']))
             <button type="submit" class="btn btn-primary btn-block z-depth-1a" id="but_submit" name="but_submit" >Sign in</button>
           </div>
           <label>Don't have an account? <a href="../signup/signup.php" >Create a free account</a></label><br>
-          <label>Not Yet Subscribe? <a href="" >Follow the Steps</a></label>
+          <label>Not Yet Subscribe? <a href="../resource/RPD_Approval.php" >Follow the Steps</a></label>
         </form>
     
         <!-- <p class="font-small dark-grey-text d-flex justify-content-center">or sign in with:</p>

@@ -374,6 +374,7 @@ if(isset($_FILES['files'])){
        <th scope="col">Research Status</th>
        <th scope="col">Field of Study</th>
        <th scope="col"></th>
+       <th scope="col"></th>
        <th scope="col" align="center">Action</th>
      </tr>
    </thead>
@@ -394,11 +395,16 @@ if(isset($_FILES['files'])){
          <td><?php echo $data['date_publish']?></td>
          <td><?php echo $data['r_status']?></td>  
          <td><?php echo $data['field_of_study']?></td>
-         <td><?php
-        //  $user = get_user_data($connect,$_SESSION['id']);
-        //  echo $user['name'];
-         ?>
-       </td>
+         <td><?php 
+         if($data['cites'] >= "5"){
+           echo "Most Cited";
+         }
+         ?></td>
+         <td><?php 
+         if($data['views'] >= "10"){
+           echo "Most View";
+         }?>
+        </td>
        <!-- Action Column -->
        <td>
          <div class="dropdown"  style="float:left">
