@@ -93,11 +93,7 @@ if(isset($_POST['btnsubmit']))
             <h3 class="card-title text-center">Signup</h3>
             <form action="" method="POST" onsubmit="return validateForm()" name="Form">
             <div class="form-group">
-
             <?php if (isset($_SESSION['success_message']) && !empty($_SESSION['success_message'])) { ?>
-                        
-          
-
                   <div class="alert alert-success d-flex align-items-center" role="alert">
                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
                   <div>
@@ -111,6 +107,7 @@ if(isset($_POST['btnsubmit']))
                     
                   <input type="text" class="form-control" id="name" placeholder="Name" name="name">
                 </div>
+                
                 <div class="form-group">
                   <input type="text" class="form-control" id="username" placeholder="Username" name="username">
                 </div>

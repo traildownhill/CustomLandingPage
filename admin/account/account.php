@@ -9,35 +9,36 @@ if (empty($_SESSION['id'])) {
 ?>
 <!-- #Account-->
 <section id="intro" class="clearfix">
-  <div class="container">
-  <h3 style="color:#fff;">&nbsp;<b> Account Management </b></h3>
-    <div class="card-group">
-          <div class="col-md-3 col-sm-5">
+   <div class="container">
+      <h3 style="color:#fff;">&nbsp;<b> Account Management </b></h3>
+      <div class="card-group">
+         <div class="col-md-3 col-sm-5">
             <div class="card">
-              <div class="card-body">
-                <!-- change function to the designated function of your assign management -->
-                <i class="fa fa-book fa-2x " style="color:#007bff"></i><h2 class="float-right"><?php echo get_accounts($connect)->num_rows;?><?php 
+               <div class="card-body">
+                  <!-- change function to the designated function of your assign management -->
+                  <i class="fa fa-book fa-2x " style="color:#007bff"></i>
+                  <h2 class="float-right"><?php echo get_accounts($connect)->num_rows;?><?php 
                 // echo get_journal($connect)->num_rows;?></h2>
-                 <h5 class="card-title">All Account</h5>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
+                  <h5 class="card-title">All Account</h5>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+               </div>
             </div>
-          </div>
-          <div class="col-md-3 col-sm-5">
+         </div>
+         <div class="col-md-3 col-sm-5">
             <div class="card">
-              <div class="card-body"> 
-               <i class="fa fa-upload fa-2x" style="color:#007bff"></i>
-                <h5 class="card-title">Recent upload</h5>     
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-              </div>
+               <div class="card-body">
+                  <i class="fa fa-upload fa-2x" style="color:#007bff"></i>
+                  <h5 class="card-title">Recent upload</h5>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+               </div>
             </div>
-          </div>
+         </div>
       </div>
-    </div>
+   </div>
 </section>
-          
+
 <br>
- <!--<header class="section-header">
+<!--<header class="section-header">
       <h3>Journal Management</h3>
     </header> -->
 <?php
@@ -90,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
       message("Invalid format and please re-enter valid email","0"); 
     }
 
-    $result = create_accountaction($connect,$_POST['name'],$_POST['email'],$_POST['pass'],$_POST['ucategory'],$_POST['au_member'],$_SESSION['id']);
+    $result = create_accountaction($connect,$_POST['name'],$_POST['email'],$_POST['pass'],$_POST['ucategory'],$_POST['username']);
     if ($result == 1) {
       message("Account created successfully!",1);
     } else {
@@ -102,334 +103,348 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
 
 ?>
 <div class="container">
-  <!-- Create task button -->
-  <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#create-project">
-  <i  class="fa fa-plus"></i>
-  </button>
-  <!-- change location of href -->
-  <a href="./account.php"><button type="button" class="btn btn-outline-primary btn-sm">
-  <i class="fa fa-refresh" aria-hidden="true"></i>
-  </button>
-  </a>
-  <a href="../account/report/subscribe_report.php"><button type="button" class="btn btn-outline-primary btn-sm" style="float: right;"><i class="fa fa-report"  aria-hidden="true">Report for Accounts</i></button></a>
+   <!-- Create task button -->
+   <button type="button" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#create-project">
+      <i class="fa fa-plus"></i>
+   </button>
+   <!-- change location of href -->
+   <a href="./account.php"><button type="button" class="btn btn-outline-primary btn-sm">
+         <i class="fa fa-refresh" aria-hidden="true"></i>
+      </button>
+   </a>
+   <a href="../account/report/subscribe_report.php"><button type="button" class="btn btn-outline-primary btn-sm"
+         style="float: right;"><i class="fa fa-report" aria-hidden="true">Report for Accounts</i></button></a>
 
 
-<br/>
-<br/>
+   <br />
+   <br />
 
-<!-- Create New Account -->
+   <!-- Create New Account -->
 
-<div class="modal fade" id="create-project" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="create-project-label" aria-hidden="true">
- <div class="modal-dialog modal-dialog-centered " role="document">
-   <div class="modal-content">
-     <!-- change action location to your management -->
-     <form method="post" action="./account.php" enctype="multipart/form-data">
-       <div class="modal-header">
-         <h5 class="modal-title" id="create-project-label">Create Account</h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-       <div class="modal-body">
-         <!-- change the form add based on your designated management -->
-         <div class="form-group">
-           <label for="name">Name</label>
-           <input type="text" class="form-control" id="name" name="name" required>
-           <span class = "error">* <?php echo $nameErr;?></span>
+   <div class="modal fade" id="create-project" data-backdrop="static" tabindex="-1" role="dialog"
+      aria-labelledby="create-project-label" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered " role="document">
+         <div class="modal-content">
+            <!-- change action location to your management -->
+            <form method="post" action="./account.php" enctype="multipart/form-data">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="create-project-label">Create Account</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <!-- change the form add based on your designated management -->
+                  <div class="form-group">
+                     <label for="name">Name</label>
+                     <input type="text" class="form-control" id="name" name="name" required>
+                  </div>
+                  <div class="form-group">
+                  <label for="name">Username</label>
+                     <input type="text" class="form-control" id="username" name="username" required>
+                  </div>
+                  <div class="form-group">
+                     <label for="email">Email</label>
+                     <input type="text" class="form-control" id="email" name="email" required>
+                  </div>
+                  <div class="form-group">
+                     <label for="pass">Password</label>
+                     <input type="password" class="form-control" id="pass" name="pass" required></input>
+                  </div>
+
+                  <div class="form-group">
+                     <select class="browser-default custom-select" id="ucategory" class="form-control" name="ucategory"
+                        value=" " required>
+                        <option selected disabled>Category</option>
+                        <option value="User">User</option>
+                        <option value="Administrator">Administrator</option>
+                     </select>
+                  </div>
+
+               </div>
+
+               <input type="hidden" name="create" value="create" />
+               <div class="modal-footer">
+                  <button class="btn btn-primary">Save</button>
+                  <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+               </div>
          </div>
-           <div class="form-group">
-             <label for="email">Email</label>
-             <input type="text" class="form-control" id="email" name="email">
-             <span class = "error">* <?php echo $nameErr;?></span>
-           </div>
-           <div class="form-group">
-							<label for="pass">Password</label>
-							<input type="password" class="form-control" id="pass" name="pass"></input>
-              <span class = "error">* <?php echo $nameErr;?></span>
-					</div>
-
-          <div class="form-group">
-               <select class="browser-default custom-select"  id="ucategory"
-                  class="form-control"
-                  name="ucategory"
-                  value=" ">
-                  <option selected disabled>Category</option>
-                  <option value="User">User</option>
-                  <option value="Administrator">Administrator</option>
-                </select>
-                <span class = "error">* <?php echo $nameErr;?></span>
-                </div>
-
-         <div class="form-group">
-               <select class="browser-default custom-select"  id="au_member"
-                  class="form-control"
-                  name="au_member"
-                  value=" ">
-                  <option selected disabled>Member of Arellano Community?</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
-                </select>
-                <span class = "error">* <?php echo $nameErr;?></span>
-                </div>
-        </div>
-      
-       <input type="hidden" name="create" value="create"/>
-       <div class="modal-footer">
-         <button class="btn btn-primary">Save</button>
-         <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-       </div>
-       </div>
-     </form>
+         </form>
+      </div>
    </div>
- </div>
 
-<!--Account-->
-<div class="table-responsive-lg">
-  <!-- change table id based on your managemnet -->
- <table id="research" class="table table-hover">
-   <thead>
-     <tr>
-       <th scope="col" class="d-none">Default Sort Fixer</th>
-       <th scope="col">ID</th>
-       <th scope="col">Name</th>
-       <th scope="col">Email</th>
-       <th scope="col">Category</th>
-       <th scope="col">Subscription</th>
-       <th scope="col" align="center">Action</th>
-     </tr>
-   </thead>
-   <tbody>
-     <?php
+   <!--Account-->
+   <div class="table-responsive-lg">
+      <!-- change table id based on your managemnet -->
+      <table id="research" class="table table-hover">
+         <thead>
+            <tr>
+               <th scope="col" class="d-none">Default Sort Fixer</th>
+               <th scope="col">ID</th>
+               <th scope="col">Name</th>
+               <th scope="col">Email</th>
+               <th scope="col">Category</th>
+               <th scope="col">Subscription</th>
+               <th scope="col" align="center">Action</th>
+            </tr>
+         </thead>
+         <tbody>
+            <?php
      $result = get_users($connect);
      if ($result->num_rows>0) {
      while ($data = mysqli_fetch_array($result)) {
        ?>
-       <tr>
-         <td><?php echo $data['id']?></td>
-         <td><?php echo $data['name']?></a></td>
-         <td><?php echo $data['username']?></a></td>
-         <td><?php echo $data['ucategory']?></td>
-         <td><?php echo $data['subcribe']?></td>
-         <td><?php
+            <tr>
+               <td><?php echo $data['id']?></td>
+               <td><?php echo $data['name']?></a></td>
+               <td><?php echo $data['username']?></a></td>
+               <td><?php echo $data['ucategory']?></td>
+               <td><?php echo $data['subcribe']?></td>
+               <td><?php
         //  $user = get_user_data($connect,$data['creator']);
         //  echo $user['name'];
          ?>
-       </td>
-     
-       <td align="center"><div class="dropdown">
-         <button class="btn btn-light btn-sm" type="button" id="option" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           <i class="fa fa-ellipsis-h"></i>
-         </button>
-         <div class="dropdown-menu" aria-labelledby="option">
-           <a class="dropdown-item" href="./api/action.php?edit=<?php echo $data['id']?>">Edit</a>
-           <?php 
+               </td>
+
+               <td align="center">
+                  <div class="dropdown">
+                     <button class="btn btn-light btn-sm" type="button" id="option" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-h"></i>
+                     </button>
+                     <div class="dropdown-menu" aria-labelledby="option">
+                        <a class="dropdown-item" href="./api/action.php?edit=<?php echo $data['id']?>">Edit</a>
+                        <?php 
           $status = $data['status'];
           if($status == "Active")
           {
             // $stat1="Deactivate";
-            if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>" data-toggle="modal" data-target="#deactivate-<?php echo $data['id'];?>">Deactivate</a><?php }
+            if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>"
+                           data-toggle="modal" data-target="#deactivate-<?php echo $data['id'];?>">Deactivate</a><?php }
           }
           elseif($status =="Inactive")
           {
             // $stat1 = "Activate";
-            if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>" data-toggle="modal" data-target="#activate-<?php echo $data['id'];?>">Activate</a><?php }
+            if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>"
+                           data-toggle="modal" data-target="#activate-<?php echo $data['id'];?>">Activate</a><?php }
           }
           $id = $data['id'];
         ?>
 
-<?php 
+                        <?php 
           $status = $data['subcribe'];
           if($status == "Yes")
           {
             // $stat1="Deactivate";
-            if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>" data-toggle="modal" data-target="#unsubscribe-<?php echo $data['id'];?>">Unsubscribe</a><?php }
+            if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>"
+                           data-toggle="modal" data-target="#unsubscribe-<?php echo $data['id'];?>">Unsubscribe</a><?php }
           }
           elseif($status =="No")
           {
             // $stat1 = "Activate";
-            if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>" data-toggle="modal" data-target="#subscribe-<?php echo $data['id'];?>">Subscribe</a><?php }
+            if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>"
+                           data-toggle="modal" data-target="#subscribe-<?php echo $data['id'];?>">Subscribe</a><?php }
           }
           elseif($status ==""){
-            if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>" data-toggle="modal" data-target="#subscribe-<?php echo $data['id'];?>">Subscribe</a><?php }
+            if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>"
+                           data-toggle="modal" data-target="#subscribe-<?php echo $data['id'];?>">Subscribe</a><?php }
           }
           $id = $data['id'];
         ?>
-           <?php if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item" href="#<?php echo $data['id'];?>" data-toggle="modal" data-target="#delete-<?php echo $data['id'];?>">Delete</a><?php } ?>
-         </div>
-       </div>
-     </td>
-   </tr>
+                        <?php if ($_SESSION['role']=="Administrator") {?><a class="dropdown-item"
+                           href="#<?php echo $data['id'];?>" data-toggle="modal"
+                           data-target="#delete-<?php echo $data['id'];?>">Delete</a><?php } ?>
+                     </div>
+                  </div>
+               </td>
+            </tr>
 
-     <!-- Delete Popup -->
- <div style="margin-top: 200px;width: 30%;margin-left: 35%;margin-right: 35%;" class="modal fade" id="delete-<?php echo $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h5 class="modal-title" id="deleteLabel">Delete Account</h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-       <div class="modal-body">
-         Are you sure you want to delete?
-       </div>
-       <div class="modal-footer">
-         <a href="?del=<?php echo $data['id'];?>"><button type="button" class="btn btn-danger">Yes</button></a>
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-       </div>
-     </div>
-   </div>
- </div>
+            <!-- Delete Popup -->
+            <div style="margin-top: 200px;width: 30%;margin-left: 35%;margin-right: 35%;" class="modal fade"
+               id="delete-<?php echo $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="deleteLabel"
+               aria-hidden="true">
+               <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="deleteLabel">Delete Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body">
+                        Are you sure you want to delete?
+                     </div>
+                     <div class="modal-footer">
+                        <a href="?del=<?php echo $data['id'];?>"><button type="button"
+                              class="btn btn-danger">Yes</button></a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
 
-<!-- Activate Popup -->
-<div style="margin-top: 200px;width: 30%;margin-left: 35%;margin-right: 35%;" class="modal fade" id="activate-<?php echo $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="activateLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h5 class="modal-title" id="activateLabel">Activate Account</h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-       <div class="modal-body">
-         Are you sure you want to Activate?
-       </div>
-       <div class="modal-footer">
-         <a href="?activate=<?php echo $data['id'];?>"><button type="button" class="btn btn-danger">Yes</button></a>
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-       </div>
-     </div>
-   </div>
- </div>
+            <!-- Activate Popup -->
+            <div style="margin-top: 200px;width: 30%;margin-left: 35%;margin-right: 35%;" class="modal fade"
+               id="activate-<?php echo $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="activateLabel"
+               aria-hidden="true">
+               <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="activateLabel">Activate Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body">
+                        Are you sure you want to Activate?
+                     </div>
+                     <div class="modal-footer">
+                        <a href="?activate=<?php echo $data['id'];?>"><button type="button"
+                              class="btn btn-danger">Yes</button></a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
 
-<!-- Deactivate Popup -->
-<div style="margin-top: 200px;width: 30%;margin-left: 35%;margin-right: 35%;" class="modal fade" id="deactivate-<?php echo $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="deactivateLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h5 class="modal-title" id="deactivateLabel">Activate Account</h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-       <div class="modal-body">
-         Are you sure you want to Deactivate?
-       </div>
-       <div class="modal-footer">
-         <a href="?deactivate=<?php echo $data['id'];?>"><button type="button" class="btn btn-danger">Yes</button></a>
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-       </div>
-     </div>
-   </div>
- </div>
+            <!-- Deactivate Popup -->
+            <div style="margin-top: 200px;width: 30%;margin-left: 35%;margin-right: 35%;" class="modal fade"
+               id="deactivate-<?php echo $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="deactivateLabel"
+               aria-hidden="true">
+               <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="deactivateLabel">Activate Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body">
+                        Are you sure you want to Deactivate?
+                     </div>
+                     <div class="modal-footer">
+                        <a href="?deactivate=<?php echo $data['id'];?>"><button type="button"
+                              class="btn btn-danger">Yes</button></a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
 
-<!-- Subscribe Popup -->
- <div style="margin-top: 200px;width: 30%;margin-left: 35%;margin-right: 35%;" class="modal fade" id="subscribe-<?php echo $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="subscribeLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h5 class="modal-title" id="subscribeLabel">Subscribe Account</h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-       <div class="modal-body">
-         Are you sure you want to Subscribe?
-       </div>
-       <div class="modal-footer">
-         <a href="?subscribe=<?php echo $data['id'];?>"><button type="button" class="btn btn-danger">Yes</button></a>
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-       </div>
-     </div>
-   </div>
- </div>
+            <!-- Subscribe Popup -->
+            <div style="margin-top: 200px;width: 30%;margin-left: 35%;margin-right: 35%;" class="modal fade"
+               id="subscribe-<?php echo $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="subscribeLabel"
+               aria-hidden="true">
+               <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="subscribeLabel">Subscribe Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body">
+                        Are you sure you want to Subscribe?
+                     </div>
+                     <div class="modal-footer">
+                        <a href="?subscribe=<?php echo $data['id'];?>"><button type="button"
+                              class="btn btn-danger">Yes</button></a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
 
-<!-- Unsubscribe Popup -->
-<div style="margin-top: 200px;width: 30%;margin-left: 35%;margin-right: 35%;" class="modal fade" id="unsubscribe-<?php echo $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="unsubscribeLabel" aria-hidden="true">
-   <div class="modal-dialog" role="document">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h5 class="modal-title" id="unsubscribeLabel">Subscribe Account</h5>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-       <div class="modal-body">
-         Are you sure you want to Unsubscribe?
-       </div>
-       <div class="modal-footer">
-         <a href="?unsubscribe=<?php echo $data['id'];?>"><button type="button" class="btn btn-danger">Yes</button></a>
-         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-       </div>
-     </div>
-   </div>
- </div> 
- <?php
+            <!-- Unsubscribe Popup -->
+            <div style="margin-top: 200px;width: 30%;margin-left: 35%;margin-right: 35%;" class="modal fade"
+               id="unsubscribe-<?php echo $data['id'];?>" tabindex="-1" role="dialog" aria-labelledby="unsubscribeLabel"
+               aria-hidden="true">
+               <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title" id="unsubscribeLabel">Subscribe Account</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                        </button>
+                     </div>
+                     <div class="modal-body">
+                        Are you sure you want to Unsubscribe?
+                     </div>
+                     <div class="modal-footer">
+                        <a href="?unsubscribe=<?php echo $data['id'];?>"><button type="button"
+                              class="btn btn-danger">Yes</button></a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <?php
  }
 }
  ?>
-</tbody>
-</table>
-</div>
+         </tbody>
+      </table>
+   </div>
 </div>
 </div>
 
 <script src="../../resource/assets/datatables.min.js"></script>
 <script>
- $(function() {
-  //  change id with the id of the table
+$(function() {
+   //  change id with the id of the table
    $('#research').DataTable();
    $(function() {
-     var table = $('#example').DataTable({
-       "columnDefs": [{
-         "visible": false,
-         "targets": 2
-       }],
-       "ordering": false,
-       "displayLength": 5,
-       "drawCallback": function(settings) {
-         var api = this.api();
-         var rows = api.rows({
-           page: 'current'
-         }).nodes();
-         var last = null;
-         api.column(2, {
-           page: 'current'
-         }).data().each(function(group, i) {
-           if (last !== group) {
-             $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
-             last = group;
-           }
-         });
-       }
-     });
-           // Order by the grouping
-           $('#example tbody').on('click', 'tr.group', function() {
-             var currentOrder = table.order()[0];
-             if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
-               table.order([2, 'desc']).draw();
-             } else {
-               table.order([2, 'asc']).draw();
-             }
-           });
-       });
- });
- $('#example23').DataTable({
+      var table = $('#example').DataTable({
+         "columnDefs": [{
+            "visible": false,
+            "targets": 2
+         }],
+         "ordering": false,
+         "displayLength": 5,
+         "drawCallback": function(settings) {
+            var api = this.api();
+            var rows = api.rows({
+               page: 'current'
+            }).nodes();
+            var last = null;
+            api.column(2, {
+               page: 'current'
+            }).data().each(function(group, i) {
+               if (last !== group) {
+                  $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group +
+                     '</td></tr>');
+                  last = group;
+               }
+            });
+         }
+      });
+      // Order by the grouping
+      $('#example tbody').on('click', 'tr.group', function() {
+         var currentOrder = table.order()[0];
+         if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
+            table.order([2, 'desc']).draw();
+         } else {
+            table.order([2, 'asc']).draw();
+         }
+      });
+   });
+});
+$('#example23').DataTable({
    dom: 'Bfrtip',
    buttons: [
-   'copy', 'csv', 'excel', 'pdf', 'print'
+      'copy', 'csv', 'excel', 'pdf', 'print'
    ]
- });
- $('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
+});
+$('.buttons-copy, .buttons-csv, .buttons-print, .buttons-pdf, .buttons-excel').addClass('btn btn-primary mr-1');
 </script>
 
 
 
-    
-  <!--==========================
+
+<!--==========================
     Footer
   ============================-->
-  <!-- <footer id="footer">
+<!-- <footer id="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
@@ -482,6 +497,3 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
       </div>
       
     </div> -->
-
-  
-

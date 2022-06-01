@@ -85,12 +85,12 @@ function get_role_name($connect,$id){
 	}
 }
 
-function create_accountaction($connect,$name,$email,$password,$ucategory,$aumember,$loggedID){
+function create_accountaction($connect,$name,$email,$password,$ucategory,$username){
 
 	$options = [
 		'cost' => 12,];
 	$hash_pass = password_hash("$password", PASSWORD_BCRYPT, $options);
-	$sql = "INSERT INTO tblaccount VALUES ('','$name','$email','$hash_pass','Inactive','$ucategory','$aumember','No','0','0')";
+	$sql = "INSERT INTO tblaccount VALUES ('','$name', '$username','$hash_pass','$email','Inactive', '$ucategory','No','','')";
 	$result = $connect->query($sql);
 	if ($result === true) {
 		return 1;
