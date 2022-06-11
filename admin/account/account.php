@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] =="POST") {
                      <input type="text" class="form-control" id="name" name="name" required>
                   </div>
                   <div class="form-group">
-                  <label for="name">Username</label>
+                     <label for="name">Username</label>
                      <input type="text" class="form-control" id="username" name="username" required>
                   </div>
                   <div class="form-group">
